@@ -402,4 +402,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4a8b4528e54444b9d9cd62413e92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
-  moveSpeed: 80
+  moveSpeed: 50

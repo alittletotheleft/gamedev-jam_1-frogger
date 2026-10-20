@@ -54,7 +54,7 @@ public class Selector : MonoBehaviour
         }
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnClick(InputAction.CallbackContext context)
     {
         if (context.performed)
         {

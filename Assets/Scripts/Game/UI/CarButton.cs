@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CarButton : MonoBehaviour
 {
     [SerializeField] private GameObject car;
-    [SerializeField] private UnityEvent<GameObject> onSelect;
+    [SerializeField] private GameObjectEvent carSelect;
     private Button button;
     
     private void Start()
@@ -17,6 +17,6 @@ public class CarButton : MonoBehaviour
     
     private void Test()
     {
-        onSelect.Invoke(car);
+        carSelect.Invoke(car);
     }
 }

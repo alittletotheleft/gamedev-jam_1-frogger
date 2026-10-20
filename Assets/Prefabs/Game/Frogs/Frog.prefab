@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Frog
   baseHealth: 10
   baseDamage: 10
-  baseMoveSpeed: 10
+  baseMoveSpeed: 5
 --- !u!1 &3847393352033511879
 GameObject:
   m_ObjectHideFlags: 0
