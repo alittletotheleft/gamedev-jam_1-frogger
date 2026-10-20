@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7214608461038847040}
   - component: {fileID: 7938173515578814963}
   m_Layer: 0
-  m_Name: Car
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,11 +350,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &8696953950673638548
@@ -367,6 +367,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6079315793348523752}
   - component: {fileID: 6199498548212000382}
+  - component: {fileID: 5526713506323633741}
+  - component: {fileID: 3491352898803386656}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -402,4 +404,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4a8b4528e54444b9d9cd62413e92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
-  moveSpeed: 50
+  baseHealth: 10
+  baseDamage: 10
+  baseMoveSpeed: 50
+--- !u!65 &5526713506323633741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696953950673638548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.546032, y: 9.012389, z: 25.671616}
+  m_Center: {x: 0, y: 4.0061946, z: -1.6833034}
+--- !u!54 &3491352898803386656
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696953950673638548}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1

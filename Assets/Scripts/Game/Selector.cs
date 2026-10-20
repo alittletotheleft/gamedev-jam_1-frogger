@@ -23,53 +23,53 @@ public class Selector : MonoBehaviour
     {
         if (isPlacing)
         {
-            Test();
-        }
-    }
-
-    private void Test()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, roadMask))
-        {
-            testCarGhost.transform.position = hit.point;
-            Debug.Log("Tes");
+            ShowGhost();
         }
     }
 
     public void OnSelect(GameObject car)
     {
-        Debug.Log("Besbrnthfgn");
         if (isPlacing)
         {
             selectedCar = null;
             isPlacing = false;
-            testCarGhost.SetActive(false);
         }
         else
         {
             selectedCar = car;
             isPlacing = true;
-            testCarGhost.SetActive(true);
         }
     }
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && isPlacing)
         {
-            DoSomeRaycastingShit();
+            PlaceCar();
         }
     }
 
-    private void DoSomeRaycastingShit()
+    private void ShowGhost()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, roadMask))
+        {
+            testCarGhost.SetActive(true);
+            testCarGhost.transform.position = hit.point;
+        }
+        else
+        {
+            testCarGhost.SetActive(false);
+        }
+    }
+
+    private void PlaceCar()
     {
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.red, 2f);
 
         if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, roadMask))
         {
-            // Debug.Log($"Point: {hit.point}");
             Instantiate(testCar, hit.point, testCar.transform.rotation);
         }
     }

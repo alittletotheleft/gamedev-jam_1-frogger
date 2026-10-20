@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        gameState.MaxHealth = 100;
+        gameState.Health = 100;
+        gameState.Money = 100;
+        
         frogsManager.StartGame();
         gameState.IsGameRunning = true;
     }
