@@ -3,30 +3,34 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameState", menuName = "ScriptableObjects/Game State")]
 public class GameState : ScriptableObject
 {
+    private int health;
+    private int maxHealth;
+    private int money;
+    
     public int Health
     {
-        get => Health;
+        get => health;
         set
         {
-            Health = Mathf.Clamp(value, 0, MaxHealth);
+            health = Mathf.Clamp(value, 0, maxHealth);
         }
     }
 
     public int MaxHealth
     {
-        get => MaxHealth;
+        get => maxHealth;
         set
         {
-            MaxHealth = Mathf.Clamp(value, 0, 99999);
+            maxHealth = Mathf.Clamp(value, 0, 99999);
         }
     }
 
     public int Money
     {
-        get => Money;
+        get => money;
         set
         {
-            Money = Mathf.Clamp(value, 0, 99999);
+            money = Mathf.Clamp(value, 0, 99999);
         }
     }
 

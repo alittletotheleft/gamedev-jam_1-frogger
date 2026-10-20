@@ -1,14 +1,17 @@
 using UnityEngine;
 
 [RequireComponent(typeof(FrogsManager))]
+[RequireComponent(typeof(UIManager))]
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
     private FrogsManager frogsManager;
+    private UIManager uIManager;
 
     private void Start()
     {
         frogsManager = GetComponent<FrogsManager>();
+        uIManager = GetComponent<UIManager>();
 
         gameState.IsGameRunning = false;
 
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
         gameState.Money = 100;
         
         frogsManager.StartGame();
+        uIManager.StartGame();
         gameState.IsGameRunning = true;
     }
 
