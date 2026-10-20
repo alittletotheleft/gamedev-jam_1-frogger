@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float moveSpeed = 10f;
+    
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        transform.Translate(transform.forward * moveSpeed * Time.deltaTime);
     }
 }
