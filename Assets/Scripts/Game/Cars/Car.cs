@@ -5,6 +5,8 @@ public class Car : MonoBehaviour
     [SerializeField] private int baseHealth = 10;
     [SerializeField] private int baseDamage = 10;
     [SerializeField] private float baseMoveSpeed = 50f;
+    [SerializeField] private int cost = 100;
+    [SerializeField] private float cooldown = 6f;
     private int health;
     private int damage;
     private float moveSpeed;
@@ -14,6 +16,16 @@ public class Car : MonoBehaviour
         health = baseHealth;
         damage = baseDamage;
         moveSpeed = baseMoveSpeed;
+    }
+
+    public int GetCost()
+    {
+        return cost;
+    }
+
+    public float GetCooldown()
+    {
+        return cooldown;
     }
 
     private void Update()

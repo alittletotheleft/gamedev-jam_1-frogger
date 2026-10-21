@@ -9,16 +9,17 @@ public class CarButton : MonoBehaviour
 {
     [SerializeField] private GameObject car;
     [SerializeField] private CarSelectEvent OnCarSelect;
+    [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text cooldownText;
+    [SerializeField] private int cost = 100;
     [SerializeField] private float cooldown = 6f;
     private Button button;
-    private bool isOnCooldown;
     
     private void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(SelectCar);
-        isOnCooldown = false;
+        moneyText.text = $"$: {cost}";
         cooldownText.text = $"C: {cooldown:F1}";
     }
     
@@ -34,7 +35,6 @@ public class CarButton : MonoBehaviour
 
     private IEnumerator StartCooldown()
     {
-        isOnCooldown = true;
         button.interactable = false;
         float time = cooldown;
 
@@ -45,7 +45,6 @@ public class CarButton : MonoBehaviour
             yield return null;
         }
         
-        isOnCooldown = false;
         button.interactable = true;
         cooldownText.text = $"C: {cooldown:F1}";
     }

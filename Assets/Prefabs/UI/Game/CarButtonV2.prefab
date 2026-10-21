@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 8155894315061295952}
   - component: {fileID: 3637321018455441744}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarButton
   car: {fileID: 8696953950673638548, guid: df2851c6a53248b4a848ecae03e72fdb, type: 3}
   OnCarSelect: {fileID: 11400000, guid: 8279cb5db8540f04e95729e161367515, type: 2}
+  moneyText: {fileID: 4934019576862162809}
   cooldownText: {fileID: 1284314006045010056}
+  cost: 100
   cooldown: 6
 --- !u!1 &7660299468170100325
 GameObject:

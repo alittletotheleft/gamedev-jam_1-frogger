@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
+    [SerializeField] private int startingHealth = 100;
+    [SerializeField] private int startingMoney = 300;
     private FrogsManager frogsManager;
     private UIManager uIManager;
 
@@ -20,9 +22,9 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        gameState.MaxHealth = 100;
-        gameState.Health = 100;
-        gameState.Money = 100;
+        gameState.MaxHealth = startingHealth;
+        gameState.Health = startingHealth;
+        gameState.Money = startingMoney;
         gameState.Waves = 1;
         
         frogsManager.StartGame();
@@ -35,4 +37,14 @@ public class GameManager : MonoBehaviour
         frogsManager.StopGame();
         gameState.IsGameRunning = false;
     }
+
+    public void OnFrogEnter(int damage)
+    {
+        gameState.Health -= damage;
+        Debug.Log($"Health: {gameState.Health}");
+        if (gameState.Health <= 0)
+        {
+            StopGame();
+        }
+    } 
 }

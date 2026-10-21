@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class PlayerBox : MonoBehaviour
 {
-    [SerializeField] private Event OnFrogEnter; 
+    [SerializeField] private IntEvent OnFrogEnter; 
     
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"Tag: {other.tag} / CompareTag(\"Frog\"): {other.CompareTag("Frog")}");
         if (other.CompareTag("Frog"))
         {
-            Destroy(other);
-            OnFrogEnter.Invoke();
+            Frog frog = other.GetComponent<Frog>();
+            OnFrogEnter.Invoke(frog.GetDamage());
+            frog.Damage(999999999);
         }
     }
 }

@@ -93,13 +93,16 @@ public class Selector : MonoBehaviour
     private void PlaceCar()
     {
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.red, 2f);
+        // Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.red, 2f);
 
         if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask))
         {
             Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
-            UnselectCar();
+            Car car = selectedCar.GetComponent<Car>();
+            gameState.Money -= car.GetCost();
             buttonCallback?.Invoke();
+            
+            UnselectCar();
             buttonCallback = null;
         }
     }

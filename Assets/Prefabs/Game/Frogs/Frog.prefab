@@ -49,7 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Frog
   baseHealth: 10
   baseDamage: 10
-  baseMoveSpeed: 15
+  baseMoveSpeed: 63.51
+  baseMoney: 20
+  hurtCooldown: 0.5
 --- !u!65 &5636899681674024950
 BoxCollider:
   m_ObjectHideFlags: 0

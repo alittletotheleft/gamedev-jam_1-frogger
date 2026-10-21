@@ -27,6 +27,11 @@ public class Frog : MonoBehaviour, IDamageable
     {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
+    
+    public int GetDamage()
+    {
+        return damage;
+    }
 
     public void Damage(int damage)
     {
@@ -34,7 +39,7 @@ public class Frog : MonoBehaviour, IDamageable
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            DestroySelf();
         }
         StartCoroutine(StartHurtCooldown());
     }
@@ -44,5 +49,10 @@ public class Frog : MonoBehaviour, IDamageable
         isHurtOnCooldown = true;
         yield return new WaitForSeconds(hurtCooldown);
         isHurtOnCooldown = false;
+    }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
