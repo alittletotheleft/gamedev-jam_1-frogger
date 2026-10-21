@@ -15,14 +15,17 @@ public class UIManager : MonoBehaviour
     {
         if (gameState.IsGameRunning)
         {
+            if (!gameUI.activeSelf)
+                gameUI.SetActive(true);
             healthSlider.value = gameState.Health;
             healthSlider.maxValue = gameState.MaxHealth;
             moneyText.text = $"{gameState.Money}";
-            wavesText.text = $"{0}";
+            wavesText.text = $"{gameState.Waves}";
         }
         else
         {
-            
+            if (gameUI.activeSelf)
+                gameUI.SetActive(false);
         }
     }
 

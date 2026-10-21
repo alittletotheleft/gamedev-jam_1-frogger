@@ -19,17 +19,23 @@ public class Car : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        if (transform.position.z < -150f || transform.position.z > 150f)
+        {
+            DestroySelf();
+        }
     }
     
-    // why u not work what the fcuk
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Trigger entered");
         if (other.CompareTag("Frog"))
         {
-            Debug.Log($"Frog entered");
             IDamageable frog = other.GetComponentInParent<IDamageable>();
             frog.Damage(damage);
         }
+    }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }

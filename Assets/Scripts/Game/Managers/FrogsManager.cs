@@ -4,21 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-[Serializable]
-public struct FrogGroup
-{
-    public Frog frog;
-    public int minimumCount;
-    // public int maximumCount;
-    // public bool isRandomCount;
-}
-
-[Serializable]
-public struct FrogWave
-{
-    public FrogGroup[] frogGroups;
-}
-
 public class FrogsManager : MonoBehaviour
 {
     // [SerializeField] private FrogWave[] frogWaves;
@@ -26,7 +11,6 @@ public class FrogsManager : MonoBehaviour
     [SerializeField] private Transform frogSpawnParent;
     [SerializeField] private Transform frogSpawnPositionStart;
     [SerializeField] private Transform frogSpawnPositionEnd;
-
 
     private void Start()
     {

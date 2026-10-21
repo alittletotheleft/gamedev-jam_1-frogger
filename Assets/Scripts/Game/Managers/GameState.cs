@@ -6,6 +6,8 @@ public class GameState : ScriptableObject
     private int health;
     private int maxHealth;
     private int money;
+    private int waves;
+    private int waveCount;  
     
     public int Health
     {
@@ -31,6 +33,24 @@ public class GameState : ScriptableObject
         set
         {
             money = Mathf.Clamp(value, 0, 99999);
+        }
+    }
+
+    public int Waves
+    {
+        get => waves;
+        set
+        {
+            waves = Mathf.Clamp(value, 0, 99999);
+        }
+    }
+
+    public int WaveCount
+    {
+        get => waveCount;
+        set
+        {
+            waveCount = Mathf.Clamp(value, 0, 99999);
         }
     }
 

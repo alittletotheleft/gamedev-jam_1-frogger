@@ -20,6 +20,7 @@ public class CommunityStats : ScriptableObject
             healPercentage = Mathf.Clamp(value, 0f, Mathf.Infinity);
         }
     }
+    
     public int MoneyRate
     {
         get => moneyRate;
@@ -28,6 +29,7 @@ public class CommunityStats : ScriptableObject
             moneyRate = Mathf.Clamp(value, 0, 99999);
         }
     }
+
     public float CarSpeedPercentage
     {
         get => carSpeedPercentage;
@@ -36,6 +38,7 @@ public class CommunityStats : ScriptableObject
             carSpeedPercentage = Mathf.Clamp(value, 0f, Mathf.Infinity);
         }
     }
+
     public float CarDamagePercentage
     {
         get => carDamagePercentage;

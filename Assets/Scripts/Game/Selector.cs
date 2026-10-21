@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ public class Selector : MonoBehaviour
     private LayerMask mask;
     private GameObject selectedCar;
     private bool isPlacing;
+    private Action buttonCallback;
 
     private void Start()
     {
@@ -20,6 +22,7 @@ public class Selector : MonoBehaviour
         isPlacing = false;
         carSelectables.SetActive(false);
         testCarGhost.SetActive(false);
+        buttonCallback = null;
     }
 
     private void Update()
@@ -30,8 +33,9 @@ public class Selector : MonoBehaviour
         }
     }
 
-    public void OnCarSelect(GameObject car)
+    public void OnCarSelect(GameObject car, Action callback)
     {
+        buttonCallback = callback;
         if (isPlacing)
         {
             if (selectedCar == car)
@@ -95,6 +99,8 @@ public class Selector : MonoBehaviour
         {
             Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
             UnselectCar();
+            buttonCallback?.Invoke();
+            buttonCallback = null;
         }
     }
 }

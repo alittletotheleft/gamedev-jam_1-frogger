@@ -6,7 +6,7 @@ public class Event : ScriptableObject
 {   
     private List<EventListener> _listeners = new List<EventListener>();
     
-    public void Raise()
+    public void Invoke()
     {
         for (int i = 0; i < _listeners.Count; i++)
         {

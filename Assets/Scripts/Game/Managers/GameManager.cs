@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         gameState.MaxHealth = 100;
         gameState.Health = 100;
         gameState.Money = 100;
+        gameState.Waves = 1;
         
         frogsManager.StartGame();
         uIManager.StartGame();
