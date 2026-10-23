@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4a8b4528e54444b9d9cd62413e92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
-  model: {fileID: 11400000, guid: d033d611968db23468fc77849cf338c0, type: 2}
+  model: {fileID: 11400000, guid: c4bdc688007c8254eba5f73225378d73, type: 2}
 --- !u!65 &5526713506323633741
 BoxCollider:
   m_ObjectHideFlags: 0
