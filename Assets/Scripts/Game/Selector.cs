@@ -97,8 +97,8 @@ public class Selector : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask))
         {
-            Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
-            Car car = selectedCar.GetComponent<Car>();
+            GameObject spawned = Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
+            Car car = spawned.GetComponent<Car>();
             gameState.Money -= car.GetCost();
             buttonCallback?.Invoke();
             

@@ -2,30 +2,26 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    [SerializeField] private int baseHealth = 10;
-    [SerializeField] private int baseDamage = 10;
-    [SerializeField] private float baseMoveSpeed = 50f;
-    [SerializeField] private int cost = 100;
-    [SerializeField] private float cooldown = 6f;
-    private int health;
-    private int damage;
+    [Header("Car Model")]
+    [SerializeField] private CarModel model;
+    
+    private float damage;
     private float moveSpeed;
 
     private void Start()
     {
-        health = baseHealth;
-        damage = baseDamage;
-        moveSpeed = baseMoveSpeed;
+        damage = model.getBaseDamage();
+        moveSpeed = model.getBaseSpeed();
     }
 
     public int GetCost()
     {
-        return cost;
+        return model.cost;
     }
 
     public float GetCooldown()
     {
-        return cooldown;
+        return model.cooldown;
     }
 
     private void Update()
@@ -42,7 +38,7 @@ public class Car : MonoBehaviour
         if (other.CompareTag("Frog"))
         {
             IDamageable frog = other.GetComponentInParent<IDamageable>();
-            frog.Damage(damage);
+            frog.Damage((int)damage);
         }
     }
 
