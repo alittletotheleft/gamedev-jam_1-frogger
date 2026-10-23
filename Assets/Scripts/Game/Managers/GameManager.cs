@@ -27,14 +27,14 @@ public class GameManager : MonoBehaviour
         gameState.Money = startingMoney;
         gameState.Waves = 1;
         
-        frogsManager.StartGame();
+        frogsManager.StartFrogSpawning();
         uIManager.StartGame();
         gameState.IsGameRunning = true;
     }
 
     private void StopGame()
     {
-        frogsManager.StopGame();
+        frogsManager.StopFrogSpawning();
         gameState.IsGameRunning = false;
     }
 

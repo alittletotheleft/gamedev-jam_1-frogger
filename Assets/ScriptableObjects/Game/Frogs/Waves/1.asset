@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d9f22015381644d98dda97cabada9a, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: Assembly-CSharp::FrogWave
-  frogGroups: []
+  frogGroups:
+  - {fileID: 11400000, guid: 72b7bd7ba5db6a64da602133b31882f0, type: 2}

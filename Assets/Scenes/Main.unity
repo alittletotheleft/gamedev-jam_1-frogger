@@ -5885,8 +5885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5eadf48a297ee74580b41d1115d564b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrogsManager
-  testFrogs:
-  - {fileID: 510733380289034616, guid: 7aad0849fc7a26b4d9d30f19d4d11da2, type: 3}
+  gameState: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
+  frogWaves:
+  - {fileID: 11400000, guid: f2b8e55acbda8f048a608a89bcc09a47, type: 2}
   frogSpawnParent: {fileID: 446246253}
   frogSpawnPositionStart: {fileID: 1683431215}
   frogSpawnPositionEnd: {fileID: 1994841820}

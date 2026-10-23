@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edeb4fd8822c0d48aaf95f7eabc4050, type: 3}
   m_Name: Normal
   m_EditorClassIdentifier: Assembly-CSharp::FrogGroup
-  frog: {fileID: 0}
-  minimumCount: 0
-  maximumCount: 0
+  frog: {fileID: 510733380289034616, guid: 7aad0849fc7a26b4d9d30f19d4d11da2, type: 3}
+  minimumCount: 5
+  maximumCount: 5
   isRandomCount: 0
-  spawnCooldown: 0
+  spawnCooldown: 1

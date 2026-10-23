@@ -6,43 +6,36 @@ using Random = UnityEngine.Random;
 
 public class FrogsManager : MonoBehaviour
 {
-    // [SerializeField] private FrogWave[] frogWaves;
-    [SerializeField] private GameObject[] testFrogs;
+    [SerializeField] private GameState gameState;
+    [SerializeField] private FrogWave[] frogWaves;
     [SerializeField] private Transform frogSpawnParent;
     [SerializeField] private Transform frogSpawnPositionStart;
     [SerializeField] private Transform frogSpawnPositionEnd;
 
-    private void Start()
+    public void StartFrogSpawning()
     {
-        StartFrogSpawning();    
-    }
+        FrogWave wave = frogWaves[gameState.Waves-1];
+        int total = 0;
 
-    public void StartGame()
-    {
-        
-    }
-
-    public void StopGame()
-    {
-        
-    }
-
-    private void StartFrogSpawning()
-    {
-        foreach (GameObject frog in testFrogs)
+        for (int i = 0; i < wave.frogGroups.Length; i++)
         {
-            StartCoroutine(FrogSpawning(frog, 5, 1f));
+            FrogGroup group = wave.frogGroups[i];
+            int count = group.minimumCount;
+
+            StartCoroutine(FrogSpawning(group.frog, count, group.spawnCooldown));
+
+            total += count;
         }
     }
 
-    private void StopFrogSpawning()
+    public void StopFrogSpawning()
     {
         StopAllCoroutines();
     }
 
     private IEnumerator FrogSpawning(GameObject frog, int count, float cooldown)
     {
-        for (int it = 0; it < count; it++)
+        for (int i = 0; i < count; i++)
         {
             GameObject newFrog = Instantiate(
                 frog, 

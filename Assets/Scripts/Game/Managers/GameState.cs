@@ -7,7 +7,7 @@ public class GameState : ScriptableObject
     private int maxHealth;
     private int money;
     private int waves;
-    private int waveCount;  
+    private int waveFrogCount;  
     
     public int Health
     {
@@ -45,12 +45,12 @@ public class GameState : ScriptableObject
         }
     }
 
-    public int WaveCount
+    public int WaveFrogCount
     {
-        get => waveCount;
+        get => waveFrogCount;
         set
         {
-            waveCount = Mathf.Clamp(value, 0, 99999);
+            waveFrogCount = Mathf.Clamp(value, 0, 99999);
         }
     }
 
