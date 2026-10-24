@@ -139,6 +139,16 @@ public class Selector : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (!Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask, QueryTriggerInteraction.Ignore))
             return;
+        
+        // check if out of bounds
+        if (trajectoryInstance != null)
+        {
+            Trajectory trajectory = trajectoryInstance.GetComponentInChildren<Trajectory>();
+            if (trajectory != null && trajectory.IsOutOfBounds)
+            {
+                return;
+            }
+        }
 
         GameObject spawned = Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
         Car car = spawned.GetComponent<Car>();
