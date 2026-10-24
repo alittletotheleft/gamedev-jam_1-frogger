@@ -7,7 +7,10 @@ public class Car : MonoBehaviour
     [Header("Car Model")]
     [SerializeField] private CarModel model;
     
-    private float damage;
+    //TODO: REFACTOR THIS TO THE PLAYER LEVEL
+    public int level = 0;
+    
+    private int damage;
     private float moveSpeed;
     private Action moveCar;
     private float rotationSpeed;
@@ -20,8 +23,8 @@ public class Car : MonoBehaviour
 
     private void Start()
     {
-        damage = model.GetBaseDamage();
-        moveSpeed = model.GetBaseSpeed();
+        damage = GetComputedDamage();
+        moveSpeed = GetComputedSpeed();
         rotationSpeed = model.GetRotationSpeed();
         
         moveCar = model.pathTrajectory == null ? MoveStraight : FollowTrajectory;
@@ -40,7 +43,7 @@ public class Car : MonoBehaviour
     private void Update()
     {
         moveCar();
-        if (transform.position.z < -150f || transform.position.z > 85f)
+        if (transform.position.z < -80f || transform.position.z > 85f)
         {
             DestroySelf();
         }
@@ -51,7 +54,7 @@ public class Car : MonoBehaviour
         if (other.CompareTag("Frog"))
         {
             IDamageable frog = other.GetComponentInParent<IDamageable>();
-            frog?.Damage((int)damage);
+            frog?.Damage(damage);
         }
 
         if (other.CompareTag("Car"))
@@ -63,17 +66,20 @@ public class Car : MonoBehaviour
             if (otherCar != null) otherCar.hasExploded = true;
 
             // Large vehicle colisions rewards bigger explosions and damage
-            float explosionRadius, explosionDamage;
+            float explosionRadius;
+            int explosionDamage;
             if (otherCar.GetSize() == ModelSize.Large || GetSize() == ModelSize.Large)
             {
                 explosionRadius = 36f;
-                explosionDamage = (otherCar.GetBaseDamage() + model.GetBaseDamage()) * 1.33f;
+                explosionDamage = Mathf.RoundToInt((otherCar.GetComputedDamage() + damage) * 1.33f);
             }
             else
             {
                 explosionRadius = 24f;
-                explosionDamage = (otherCar.GetBaseDamage() + model.GetBaseDamage());
+                explosionDamage = (otherCar.GetComputedDamage() + damage);
             }
+            
+            Debug.Log($"Car: {damage}, Other: {otherCar.GetComputedDamage()}");
 
             Vector3 explosionPoint = other.ClosestPoint(new Vector3(transform.position.x, 0, transform.position.z));
 
@@ -93,7 +99,7 @@ public class Car : MonoBehaviour
 
                 IDamageable frog = hit.GetComponentInParent<IDamageable>();
                 if (frog != null && damaged.Add(frog))
-                    frog.Damage((int)explosionDamage);
+                    frog.Damage(explosionDamage);
             }
 
             Debug.Log($"EXPLOSION!!! {damaged.Count} frogs hit. Radius = {explosionRadius}. Damage = {explosionDamage}");
@@ -146,8 +152,7 @@ public class Car : MonoBehaviour
                 rotationSpeed * Time.deltaTime);
         }
 
-        if (currentPoint < positions.Length - 1 &&
-            Vector3.Distance(transform.position, targetPoint) < 0.1f)
+        if (currentPoint < positions.Length - 1 && Vector3.Distance(transform.position, targetPoint) < 0.1f)
         {
             currentPoint++;
         }
@@ -173,14 +178,22 @@ public class Car : MonoBehaviour
         return model.pathTrajectory;
     }
 
-    public float GetBaseDamage()
-    {
-        return model.GetBaseDamage();
-    }
-
     public ModelSize GetSize()
     {
         return model.size;
+    }
+    
+    public int GetComputedDamage()
+    {
+        float dmg = model.GetBaseDamage();
+        if (model.modelName == "Drunk Driver") dmg *= 0.75f; // i aint making a whole child class just for this
+
+        return Mathf.RoundToInt(dmg * (1 + 0.15f * level));;
+    }
+
+    public float GetComputedSpeed()
+    {
+        return model.GetBaseSpeed() + (2 * level);
     }
 
 }

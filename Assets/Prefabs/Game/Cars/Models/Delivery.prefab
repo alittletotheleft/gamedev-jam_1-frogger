@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
   model: {fileID: 11400000, guid: d033d611968db23468fc77849cf338c0, type: 2}
+  level: 15
 --- !u!65 &5526713506323633741
 BoxCollider:
   m_ObjectHideFlags: 0
