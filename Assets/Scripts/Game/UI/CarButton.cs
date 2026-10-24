@@ -7,25 +7,27 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class CarButton : MonoBehaviour
 {
-    [SerializeField] private GameObject car;
+    [SerializeField] private Car car;
     [SerializeField] private CarSelectEvent OnCarSelect;
+    
+    [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text cooldownText;
-    [SerializeField] private int cost = 100;
-    [SerializeField] private float cooldown = 6f;
     private Button button;
-    
+
     private void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(SelectCar);
-        moneyText.text = $"$: {cost}";
-        cooldownText.text = $"C: {cooldown:F1}";
+
+        titleText.text = $"{car.GetName()}";
+        moneyText.text = $"$: {car.GetCost()}";
+        cooldownText.text = $"C: {car.GetCooldown():F1}";
     }
-    
+
     private void SelectCar()
     {
-        OnCarSelect.Invoke(car, OnSelectComplete);
+        OnCarSelect.Invoke(car.gameObject, OnSelectComplete);
     }
 
     private void OnSelectComplete()
@@ -36,7 +38,7 @@ public class CarButton : MonoBehaviour
     private IEnumerator StartCooldown()
     {
         button.interactable = false;
-        float time = cooldown;
+        float time = car.GetCooldown();
 
         while (time > 0)
         {
@@ -44,8 +46,8 @@ public class CarButton : MonoBehaviour
             time -= Time.deltaTime;
             yield return null;
         }
-        
+
         button.interactable = true;
-        cooldownText.text = $"C: {cooldown:F1}";
+        cooldownText.text = $"C: {car.GetCooldown():F1}";
     }
 }
