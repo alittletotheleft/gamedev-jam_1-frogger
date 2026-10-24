@@ -9,16 +9,19 @@ public class CarButton : MonoBehaviour
 {
     [SerializeField] private Car car;
     [SerializeField] private CarSelectEvent OnCarSelect;
+    
+    [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text cooldownText;
-    [SerializeField] private int cost = 100;
     private Button button;
 
     private void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(SelectCar);
-        moneyText.text = $"$: {cost}";
+
+        titleText.text = $"{car.GetName()}";
+        moneyText.text = $"$: {car.GetCost()}";
         cooldownText.text = $"C: {car.GetCooldown():F1}";
     }
 

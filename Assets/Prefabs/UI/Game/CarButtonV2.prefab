@@ -665,12 +665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240bb1f9947fd1246b08e056c5da2f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarButton
-  car: {fileID: 8696953950673638548, guid: df2851c6a53248b4a848ecae03e72fdb, type: 3}
+  car: {fileID: 6199498548212000382, guid: df2851c6a53248b4a848ecae03e72fdb, type: 3}
   OnCarSelect: {fileID: 11400000, guid: 8279cb5db8540f04e95729e161367515, type: 2}
+  titleText: {fileID: 8155894315061295952}
   moneyText: {fileID: 4934019576862162809}
   cooldownText: {fileID: 1284314006045010056}
-  cost: 100
-  cooldown: 6
 --- !u!1 &7660299468170100325
 GameObject:
   m_ObjectHideFlags: 0

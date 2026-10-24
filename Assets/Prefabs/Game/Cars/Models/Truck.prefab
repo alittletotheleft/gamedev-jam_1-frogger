@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 5526713506323633741}
   - component: {fileID: 3491352898803386656}
   m_Layer: 0
-  m_Name: CarBase
+  m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
