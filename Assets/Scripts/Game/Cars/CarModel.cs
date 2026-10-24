@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using System.Collections.Generic;
 
 public enum ModelSize
 {
@@ -27,7 +28,10 @@ public class CarModel : ScriptableObject
     [Header("Gameplay")]
     public int cost = 100;
     public float cooldown = 6f;
-    public string pathTrajectory = "coming soon";
+    
+    [Header("Pathing")]
+    public LineRenderer pathTrajectory;
+    public Dictionary<int, ModelSpeed> pointSpeeds = new Dictionary<int, ModelSpeed>();
 
     private readonly float[,] damageMatrix =
     {
@@ -38,14 +42,22 @@ public class CarModel : ScriptableObject
     };
 
     private readonly float[] carSpeeds = {23f, 34.375f, 50f, 78.125f};
+    
+    private readonly float[] rotationSpeeds = {5f, 7f, 8f, 10f};
 
-    public float getBaseSpeed()
+    public float GetBaseSpeed()
     {
         return carSpeeds[(int)speedType];
     }
 
-    public float getBaseDamage()
+    public float GetBaseDamage()
     {
         return damageMatrix[(int)speedType, (int)size];
     }
+    
+    public float GetRotationSpeed()
+    {
+        return rotationSpeeds[(int)speedType];
+    }
+    
 }

@@ -9,59 +9,92 @@ public class Selector : MonoBehaviour
     [SerializeField] private GameObject carSelectables;
     [SerializeField] private GameObject testCar;
     [SerializeField] private GameObject testCarGhost;
+    [SerializeField] private GameObject ghostCar;
+    [SerializeField] private Transform trajectoryParent;
+
     private LayerMask mask;
     private GameObject selectedCar;
     private bool isPlacing;
     private Action buttonCallback;
+    private GameObject trajectoryInstance;
 
     private void Start()
     {
-        // mask = LayerMask.GetMask("Road");
         mask = LayerMask.GetMask("CarSelectable");
         selectedCar = null;
         isPlacing = false;
         carSelectables.SetActive(false);
         testCarGhost.SetActive(false);
         buttonCallback = null;
+        trajectoryInstance = null;
     }
 
     private void Update()
     {
         if (isPlacing)
         {
-            ShowGhost();
+            ShowGhostCar();
         }
     }
 
-    public void OnCarSelect(GameObject car, Action callback)
+    public void OnCarSelect(GameObject carObj, Action callback)
     {
+        Car car = carObj.GetComponent<Car>();
         buttonCallback = callback;
-        if (isPlacing)
+
+        if (isPlacing && selectedCar == carObj)
         {
-            if (selectedCar == car)
-            {
-                UnselectCar();
-            }
-            else
-            {
-                SelectCar(car);
-            }
+            UnselectCar();
+            return;
         }
-        else
-        {
-            SelectCar(car);
-        }
+
+        SelectCar(car);
     }
-    
-    private void SelectCar(GameObject car)
+
+    private void SelectCar(Car car)
     {
-        selectedCar = car;
+        selectedCar = car.gameObject;
         isPlacing = true;
         carSelectables.SetActive(true);
+        ShowTrajectory(car);
+    }
+
+    private void ShowTrajectory(Car car)
+    {
+        ClearTrajectory();
+
+        LineRenderer source = car.GetTrajectory();
+        if (source == null)
+        {
+            Debug.Log("No trajectory on model for " + car.name);
+            return;
+        }
+
+        Transform parent = trajectoryParent != null ? trajectoryParent : transform;
+        trajectoryInstance = Instantiate(source.gameObject, parent);
+        trajectoryInstance.transform.position = testCarGhost.transform.position;
+        trajectoryInstance.transform.rotation = testCarGhost.transform.rotation;
+        trajectoryInstance.SetActive(true);
+
+        int ignoreLayer = LayerMask.NameToLayer("Ignore Raycast");
+        if (ignoreLayer >= 0) SetLayerRecursive(trajectoryInstance, ignoreLayer);
+    }
+
+    private static void SetLayerRecursive(GameObject go, int layer)
+    {
+        go.layer = layer;
+        foreach (Transform child in go.transform) SetLayerRecursive(child.gameObject, layer);
+    }
+
+    private void ClearTrajectory()
+    {
+        if (trajectoryInstance != null) Destroy(trajectoryInstance);
+        trajectoryInstance = null;
     }
 
     private void UnselectCar()
     {
+        ClearTrajectory();
         selectedCar = null;
         isPlacing = false;
         carSelectables.SetActive(false);
@@ -76,34 +109,44 @@ public class Selector : MonoBehaviour
         }
     }
 
-    private void ShowGhost()
+    private void ShowGhostCar()
     {
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask))
+        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask, QueryTriggerInteraction.Ignore))
         {
             testCarGhost.SetActive(true);
             testCarGhost.transform.position = hit.transform.position;
+            testCarGhost.transform.rotation = hit.transform.rotation;
+
+            if (trajectoryInstance != null)
+            {
+                trajectoryInstance.SetActive(true);
+                trajectoryInstance.transform.position = testCarGhost.transform.position;
+                trajectoryInstance.transform.rotation = testCarGhost.transform.rotation;
+            }
         }
         else
         {
             testCarGhost.SetActive(false);
+            if (trajectoryInstance != null) trajectoryInstance.SetActive(false);
         }
     }
 
     private void PlaceCar()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        // Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.red, 2f);
+        if (selectedCar == null) return;
 
-        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask))
-        {
-            GameObject spawned = Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
-            Car car = spawned.GetComponent<Car>();
-            gameState.Money -= car.GetCost();
-            buttonCallback?.Invoke();
-            
-            UnselectCar();
-            buttonCallback = null;
-        }
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (!Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask, QueryTriggerInteraction.Ignore))
+            return;
+
+        GameObject spawned = Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
+        Car car = spawned.GetComponent<Car>();
+        gameState.Money -= car.GetCost();
+
+        Action cb = buttonCallback;
+        UnselectCar();
+        buttonCallback = null;
+        cb?.Invoke();
     }
 }

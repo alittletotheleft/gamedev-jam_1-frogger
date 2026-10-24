@@ -17,4 +17,5 @@ MonoBehaviour:
   speedType: 3
   cost: 50
   cooldown: 3
-  pathTrajectory: coming soon
+  pathTrajectory: {fileID: 5990892752729955731, guid: 5d8830a0f46ea5446b920f01be189cb2, type: 3}
+  rotationSpeed: 10
