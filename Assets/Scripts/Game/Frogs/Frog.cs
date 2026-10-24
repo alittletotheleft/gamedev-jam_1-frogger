@@ -8,6 +8,7 @@ public class Frog : MonoBehaviour, IDamageable
     [SerializeField] private float baseMoveSpeed = 10f;
     [SerializeField] private int baseMoney = 20;
     [SerializeField] private float hurtCooldown = 0.5f;
+    [SerializeField] private Event onFrogDestroy;
     private bool isHurtOnCooldown;
     private int health;
     private int damage;
@@ -53,6 +54,7 @@ public class Frog : MonoBehaviour, IDamageable
 
     private void DestroySelf()
     {
+        onFrogDestroy.Invoke();
         Destroy(gameObject);
     }
 }

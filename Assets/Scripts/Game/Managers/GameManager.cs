@@ -1,4 +1,9 @@
 using UnityEngine;
+using UnityEngine.Rendering;
+
+public enum State {
+    Wave, Upgrades
+}
 
 [RequireComponent(typeof(FrogsManager))]
 [RequireComponent(typeof(UIManager))]
@@ -25,11 +30,10 @@ public class GameManager : MonoBehaviour
         gameState.MaxHealth = startingHealth;
         gameState.Health = startingHealth;
         gameState.Money = startingMoney;
-        gameState.Waves = 1;
-        
-        frogsManager.StartFrogSpawning();
-        uIManager.StartGame();
+        gameState.Waves = 0;
+
         gameState.IsGameRunning = true;
+        StartNextWave();
     }
 
     private void StopGame()
@@ -38,13 +42,42 @@ public class GameManager : MonoBehaviour
         gameState.IsGameRunning = false;
     }
 
+    private void StartNextWave()
+    {
+        gameState.Waves++;
+        gameState.State = State.Wave;
+        frogsManager.StartFrogSpawning();
+    }
+
+    private void StartUpgrades()
+    {
+        gameState.State = State.Upgrades;
+
+    }
+
     public void OnFrogEnter(int damage)
     {
+        if (gameState.State == State.Upgrades)
+            return;
+        
         gameState.Health -= damage;
-        Debug.Log($"Health: {gameState.Health}");
+        // Debug.Log($"Health: {gameState.Health}");
         if (gameState.Health <= 0)
         {
             StopGame();
         }
-    } 
+    }
+
+    public void OnFrogDestroy()
+    {
+        if (gameState.State == State.Upgrades)
+            return;
+        
+        // Debug.Log("Frog destroyed :(");
+        gameState.WaveCount--;
+        if (gameState.WaveCount <= 0 && gameState.IsGameRunning)
+        {
+            StartUpgrades();
+        }
+    }
 }

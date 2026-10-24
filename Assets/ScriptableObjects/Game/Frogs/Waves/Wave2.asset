@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edeb4fd8822c0d48aaf95f7eabc4050, type: 3}
-  m_Name: Large
-  m_EditorClassIdentifier: Assembly-CSharp::FrogGroup
-  frog: {fileID: 0}
-  minimumCount: 0
-  maximumCount: 0
-  isRandomCount: 0
-  spawnCooldown: 0
+  m_Script: {fileID: 11500000, guid: 92d9f22015381644d98dda97cabada9a, type: 3}
+  m_Name: Wave2
+  m_EditorClassIdentifier: Assembly-CSharp::FrogWave
+  frogGroups:
+  - {fileID: 11400000, guid: 72b7bd7ba5db6a64da602133b31882f0, type: 2}

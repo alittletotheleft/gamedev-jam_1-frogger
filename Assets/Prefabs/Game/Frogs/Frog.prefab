@@ -52,6 +52,7 @@ MonoBehaviour:
   baseMoveSpeed: 8
   baseMoney: 20
   hurtCooldown: 0.5
+  onFrogDestroy: {fileID: 11400000, guid: 84ab3ceae10b8f240a8fe5e195773d1c, type: 2}
 --- !u!65 &5636899681674024950
 BoxCollider:
   m_ObjectHideFlags: 0

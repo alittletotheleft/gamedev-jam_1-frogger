@@ -14,26 +14,35 @@ public class FrogsManager : MonoBehaviour
 
     public void StartFrogSpawning()
     {
-        FrogWave wave = frogWaves[gameState.Waves-1];
+        Debug.Log($"Spawning wave #{gameState.Waves}.");
+        
+        FrogWave wave;
         int total = 0;
+        if (gameState.Waves > frogWaves.Length)
+            wave = frogWaves[^1];
+        else
+            wave = frogWaves[gameState.Waves-1];
 
         for (int i = 0; i < wave.frogGroups.Length; i++)
         {
             FrogGroup group = wave.frogGroups[i];
-            int count = group.minimumCount;
+            int count = group.minimumSpawnCount;
 
-            StartCoroutine(FrogSpawning(group.frog, count, group.spawnCooldown));
-
+            StartCoroutine(FrogSpawning(group.frog, count, group.minimumSpawnCooldown, group.maximumSpawnCooldown));
             total += count;
         }
+
+        gameState.WaveCount = total;
+        Debug.Log($"Wave #{gameState.Waves} spawned with {gameState.WaveCount} frogs.");
     }
 
     public void StopFrogSpawning()
     {
+        Debug.Log($"Stopped spawning wave #{gameState.Waves}.");
         StopAllCoroutines();
     }
 
-    private IEnumerator FrogSpawning(GameObject frog, int count, float cooldown)
+    private IEnumerator FrogSpawning(GameObject frog, int count, float minCooldown, float maxCooldown)
     {
         for (int i = 0; i < count; i++)
         {
@@ -47,7 +56,8 @@ public class FrogsManager : MonoBehaviour
                 frog.transform.rotation
             );
             newFrog.transform.parent = frogSpawnParent;
-
+            
+            float cooldown = Mathf.Lerp(minCooldown, maxCooldown, Random.value);
             yield return new WaitForSeconds(cooldown);
         }
     }

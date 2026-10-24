@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edeb4fd8822c0d48aaf95f7eabc4050, type: 3}
-  m_Name: Small
-  m_EditorClassIdentifier: Assembly-CSharp::FrogGroup
-  frog: {fileID: 0}
-  minimumCount: 0
-  maximumCount: 0
-  isRandomCount: 0
-  spawnCooldown: 0
+  m_Script: {fileID: 11500000, guid: 5e733f6f8666b5340aa3bd27c5ecd57b, type: 3}
+  m_Name: OnFrogDestroy
+  m_EditorClassIdentifier: Assembly-CSharp::Event

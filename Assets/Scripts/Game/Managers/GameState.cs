@@ -3,12 +3,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameState", menuName = "ScriptableObjects/Game State")]
 public class GameState : ScriptableObject
 {
+    private State state;
     private int health;
     private int maxHealth;
     private int money;
     private int waves;
-    private int waveFrogCount;  
+    private int waveCount;
     
+    public State State
+    {
+        get => state;
+        set
+        {
+            state = value;
+        }
+    }
+
     public int Health
     {
         get => health;
@@ -45,12 +55,12 @@ public class GameState : ScriptableObject
         }
     }
 
-    public int WaveFrogCount
+    public int WaveCount
     {
-        get => waveFrogCount;
+        get => waveCount;
         set
         {
-            waveFrogCount = Mathf.Clamp(value, 0, 99999);
+            waveCount = Mathf.Clamp(value, 0, 99999);
         }
     }
 
