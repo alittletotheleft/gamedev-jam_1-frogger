@@ -17,6 +17,13 @@ public enum ModelSpeed
     Fast = 3
 }
 
+[System.Serializable]
+public struct PointSpeed
+{
+    public int pointIndexApproaching;
+    public ModelSpeed speed;
+}
+
 [CreateAssetMenu(fileName = "CarModel", menuName = "ScriptableObjects/Cars/CarModel")]
 public class CarModel : ScriptableObject
 {
@@ -31,7 +38,8 @@ public class CarModel : ScriptableObject
     
     [Header("Pathing")]
     public LineRenderer pathTrajectory;
-    public Dictionary<int, ModelSpeed> pointSpeeds = new Dictionary<int, ModelSpeed>();
+    [Tooltip("Index is the point the car is approaching. The car starts at 0 approaching 1")]
+    public List<PointSpeed> pointSpeeds = new List<PointSpeed>();
 
     private readonly float[,] damageMatrix =
     {
@@ -48,6 +56,11 @@ public class CarModel : ScriptableObject
     public float GetBaseSpeed()
     {
         return carSpeeds[(int)speedType];
+    }
+
+    public float GetSpeed(ModelSpeed speed)
+    {
+        return carSpeeds[(int)speed];
     }
 
     public float GetBaseDamage()

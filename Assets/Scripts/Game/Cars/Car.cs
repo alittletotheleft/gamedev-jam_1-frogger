@@ -20,6 +20,7 @@ public class Car : MonoBehaviour
     private int pointCounts = 0;
     private Vector3[] positions;
     private int currentPoint;
+    private Dictionary<int, ModelSpeed> speedChanges;
 
     private void Start()
     {
@@ -36,6 +37,11 @@ public class Car : MonoBehaviour
         else
         {
             moveCar = FollowTrajectory;
+            
+            speedChanges = new Dictionary<int, ModelSpeed>();
+            foreach (PointSpeed ps in model.pointSpeeds)
+                speedChanges[ps.pointIndexApproaching] = ps.speed;
+            
             InitializeTracjectory();
         }
     }
@@ -135,13 +141,20 @@ public class Car : MonoBehaviour
 
     private void FollowTrajectory()
     {
+        // dynamic speed
+        if (speedChanges.TryGetValue(currentPoint, out ModelSpeed newSpeed))
+        {
+            moveSpeed = GetComputedSpeed(model.GetSpeed(newSpeed));
+        }
+        
+        // movement
         Vector3 targetPoint = positions[currentPoint];
-
         transform.position = Vector3.MoveTowards(
             transform.position,
             targetPoint,
             moveSpeed * Time.deltaTime);
 
+        // rotation
         Vector3 direction = targetPoint - transform.position;
         if (direction != Vector3.zero)
         {
@@ -152,6 +165,7 @@ public class Car : MonoBehaviour
                 rotationSpeed * Time.deltaTime);
         }
 
+        // point indexing
         if (currentPoint < positions.Length - 1 && Vector3.Distance(transform.position, targetPoint) < 0.1f)
         {
             currentPoint++;
@@ -194,6 +208,11 @@ public class Car : MonoBehaviour
     public float GetComputedSpeed()
     {
         return model.GetBaseSpeed() + (2 * level);
+    }
+
+    public float GetComputedSpeed(float speed)
+    {
+        return speed + (2 * level);
     }
 
 }
