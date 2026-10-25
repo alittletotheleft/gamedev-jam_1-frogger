@@ -15,5 +15,7 @@ MonoBehaviour:
   size: 0
   baseHealth: 30
   baseSpeed: 9
+  minHopDelay: 0
+  maxHopDelay: 0.5
   baseDamage: 1
   baseRewards: 0

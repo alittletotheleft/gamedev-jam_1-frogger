@@ -58,10 +58,12 @@ public class Car : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Frog"))
         {
             IDamageable frog = other.GetComponentInParent<IDamageable>();
             frog?.Damage(damage);
+            Debug.Log($"Frog hit w/ dmg: {damage} at speed: {moveSpeed}");
         }
 
         if (other.CompareTag("Car"))
@@ -135,17 +137,22 @@ public class Car : MonoBehaviour
 
         // point positions
         for (int i = 0; i < positions.Length; i++)
-            positions[i] = transform.TransformPoint(positions[i]);
+            positions[i] = transform.TransformPoint(positions[i] + model.pathOffset);
         
-        currentPoint = 0;
+        currentPoint = 1;
+        
+        if (positions.Length < 2)
+            moveCar = MoveStraight;
     }
 
     private void FollowTrajectory()
     {
+        
         // dynamic speed
         if (speedChanges.TryGetValue(currentPoint, out ModelSpeed newSpeed))
         {
             moveSpeed = GetComputedSpeed(model.GetSpeed(newSpeed));
+            damage = GetComputedDamage(newSpeed); // update correspoinding damage
         }
         
         // movement
@@ -167,9 +174,12 @@ public class Car : MonoBehaviour
         }
 
         // point indexing
-        if (currentPoint < positions.Length - 1 && Vector3.Distance(transform.position, targetPoint) < 0.1f)
+        if (Vector3.Distance(transform.position, targetPoint) < 0.1f)
         {
-            currentPoint++;
+            if (currentPoint < positions.Length - 1)
+                currentPoint++;
+            else
+                moveCar = MoveStraight; // path finished
         }
     }
     
@@ -200,12 +210,17 @@ public class Car : MonoBehaviour
     
     public int GetComputedDamage()
     {
-        float dmg = model.GetBaseDamage();
-        if (model.modelName == "Drunk Driver") dmg *= 0.75f; // i aint making a whole child class just for this
+        return GetComputedDamage(model.speedType);
+    }
+    
+    public int GetComputedDamage(ModelSpeed speed)
+    {
+        float dmg = model.GetDamage(speed);
+        if (model.modelName == "Drunk Driver") dmg *= 0.667f; // i aint making a whole child class just for this
 
         return Mathf.RoundToInt(dmg * (1 + 0.15f * carDamage.Level));
     }
-
+    
     public float GetComputedSpeed()
     {
         return model.GetBaseSpeed() + (2 * carSpeed.Level);
@@ -214,6 +229,11 @@ public class Car : MonoBehaviour
     public float GetComputedSpeed(float speed)
     {
         return speed + (2 * carSpeed.Level);
+    }
+    
+    public Vector3 GetPathOffset()
+    {
+        return model.pathOffset;
     }
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class FrogHop : MonoBehaviour
 {
-    [SerializeField] private float stepSize = 4.5f;
+    [SerializeField] private float stepSize = 9f;
 
     private const float TakeoffTime = 18f / 60f;
     private const float LandTime = 48f / 60f;
@@ -72,5 +72,10 @@ public class FrogHop : MonoBehaviour
         {
             transform.position = position;
         }
+    }
+
+    public void SetStepSize(float steps)
+    {
+        stepSize = steps;
     }
 }

@@ -14,11 +14,13 @@ public class FrogType : ScriptableObject
     public FrogSize size;
     public int baseHealth;
     public float baseSpeed;
+    public float minHopDelay;
+    public float maxHopDelay;
     public int baseDamage;
     public int baseRewards;
     
     private readonly float healthMultiplier = 0.15f;
-    private readonly float speedMultiplier = 0.1f;
+    private readonly float speedMultiplier = 0.2f;
     private readonly float damageMultiplier = 0.15f;
 
     public int GetComputedHealth(int level)

@@ -38,15 +38,16 @@ public class CarModel : ScriptableObject
     
     [Header("Pathing")]
     public LineRenderer pathTrajectory;
+    public Vector3 pathOffset = new Vector3(0f, 0f, -8.5f);
     [Tooltip("Index is the point the car is approaching. The car starts at 0 approaching 1")]
     public List<PointSpeed> pointSpeeds = new List<PointSpeed>();
 
-    private readonly float[,] damageMatrix =
+    private readonly int[,] damageMatrix =
     {
         {0, 0, 70},
-        {0, 0, 85},
+        {0, 50, 85},
         {0, 60, 100},
-        {30, 80, 120}
+        {30, 90, 120}
     };
 
     private readonly float[] carSpeeds = {23f, 34.375f, 50f, 78.125f};
@@ -63,9 +64,14 @@ public class CarModel : ScriptableObject
         return carSpeeds[(int)speed];
     }
 
-    public float GetBaseDamage()
+    public int GetBaseDamage()
     {
         return damageMatrix[(int)speedType, (int)size];
+    }
+
+    public int GetDamage(ModelSpeed speed)
+    {
+        return damageMatrix[(int)speed, (int)size];
     }
     
     public float GetRotationSpeed()
