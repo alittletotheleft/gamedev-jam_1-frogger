@@ -38,6 +38,7 @@ public class CarModel : ScriptableObject
     
     [Header("Pathing")]
     public LineRenderer pathTrajectory;
+    public Vector3 pathOffset = new Vector3(0f, 0f, -8.5f);
     [Tooltip("Index is the point the car is approaching. The car starts at 0 approaching 1")]
     public List<PointSpeed> pointSpeeds = new List<PointSpeed>();
 

@@ -18,9 +18,8 @@ public class Selector : MonoBehaviour
     private bool isPlacing;
     private Action buttonCallback;
     private GameObject trajectoryInstance;
+    private Vector3 currentPathOffset;
     
-    
-
     private void Start()
     {
         mask = LayerMask.GetMask("CarSelectable");
@@ -72,10 +71,13 @@ public class Selector : MonoBehaviour
             Debug.Log("No trajectory on model for " + car.name);
             return;
         }
+        
+        currentPathOffset = car.GetPathOffset();
 
         Transform parent = trajectoryParent != null ? trajectoryParent : transform;
         trajectoryInstance = Instantiate(source.gameObject, parent);
-        trajectoryInstance.transform.position = testCarGhost.transform.position;
+        trajectoryInstance.transform.position =
+            testCarGhost.transform.position + testCarGhost.transform.rotation * currentPathOffset;
         trajectoryInstance.transform.rotation = testCarGhost.transform.rotation;
         trajectoryInstance.SetActive(true);
 
@@ -124,7 +126,8 @@ public class Selector : MonoBehaviour
             if (trajectoryInstance != null)
             {
                 trajectoryInstance.SetActive(true);
-                trajectoryInstance.transform.position = testCarGhost.transform.position;
+                trajectoryInstance.transform.position =
+                    testCarGhost.transform.position + testCarGhost.transform.rotation * currentPathOffset;
                 trajectoryInstance.transform.rotation = testCarGhost.transform.rotation;
             }
         }

@@ -136,13 +136,17 @@ public class Car : MonoBehaviour
 
         // point positions
         for (int i = 0; i < positions.Length; i++)
-            positions[i] = transform.TransformPoint(positions[i]);
+            positions[i] = transform.TransformPoint(positions[i] + model.pathOffset);
         
-        currentPoint = 0;
+        currentPoint = 1;
+        
+        if (positions.Length < 2)
+            moveCar = MoveStraight;
     }
 
     private void FollowTrajectory()
     {
+        
         // dynamic speed
         if (speedChanges.TryGetValue(currentPoint, out ModelSpeed newSpeed))
         {
@@ -169,9 +173,12 @@ public class Car : MonoBehaviour
         }
 
         // point indexing
-        if (currentPoint < positions.Length - 1 && Vector3.Distance(transform.position, targetPoint) < 0.1f)
+        if (Vector3.Distance(transform.position, targetPoint) < 0.1f)
         {
-            currentPoint++;
+            if (currentPoint < positions.Length - 1)
+                currentPoint++;
+            else
+                moveCar = MoveStraight; // path finished
         }
     }
     
@@ -221,6 +228,11 @@ public class Car : MonoBehaviour
     public float GetComputedSpeed(float speed)
     {
         return speed + (2 * level);
+    }
+    
+    public Vector3 GetPathOffset()
+    {
+        return model.pathOffset;
     }
 
 }
