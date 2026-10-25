@@ -50,7 +50,7 @@ public class Car : MonoBehaviour
     private void Update()
     {
         moveCar();
-        if (transform.position.z < -80f || transform.position.z > 85f)
+        if (transform.position.z < -160f || transform.position.z > 160f)
         {
             DestroySelf();
         }

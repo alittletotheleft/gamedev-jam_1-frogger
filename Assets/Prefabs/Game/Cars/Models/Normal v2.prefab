@@ -986,9 +986,10 @@ GameObject:
   - component: {fileID: 6477196603233872662}
   - component: {fileID: 6033951186076302730}
   - component: {fileID: 7735776303532518641}
+  - component: {fileID: 308069406492725454}
   m_Layer: 0
   m_Name: Normal v2
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1047,6 +1048,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 14.397507, y: 10.143597, z: 34.17632}
   m_Center: {x: 0, y: 4.5717983, z: 0}
+--- !u!54 &308069406492725454
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118205371665353407}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &3420728943628761211
 GameObject:
   m_ObjectHideFlags: 0
