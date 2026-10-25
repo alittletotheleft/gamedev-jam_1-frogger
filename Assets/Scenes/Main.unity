@@ -6467,7 +6467,7 @@ MonoBehaviour:
   startingMoney: 300
   upgradeFrequency: 5
   heal: {fileID: 11400000, guid: c80913a4b06fa1748b2059d43fa87c46, type: 2}
-  money: {fileID: 0}
+  money: {fileID: 11400000, guid: fb91df5727f54a2449632a266ba24684, type: 2}
 --- !u!114 &1038168256
 MonoBehaviour:
   m_ObjectHideFlags: 0
