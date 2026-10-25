@@ -6,9 +6,10 @@ public class Car : MonoBehaviour
 {
     [Header("Car Model")]
     [SerializeField] private CarModel model;
-    
-    [NonSerialized]
-    public int level = 0;
+    [SerializeField] private CommunityStat carSpeed;
+    [SerializeField] private CommunityStat carDamage;
+    [SerializeField] private CommunityStat carCost;
+    [SerializeField] private CommunityStat carCooldown;
     
     private int damage;
     private float moveSpeed;
@@ -174,12 +175,12 @@ public class Car : MonoBehaviour
     
     public int GetCost()
     {
-        return model.cost;
+        return Mathf.FloorToInt(model.cost * (1f - 0.50f * ((float)carCost.Level/carCost.MaxLevel)));
     }
 
     public float GetCooldown()
     {
-        return model.cooldown;
+        return Mathf.FloorToInt(model.cooldown * (1f - 0.50f * ((float)carCooldown.Level/carCooldown.MaxLevel)));;
     }
 
     public string GetName()
@@ -202,17 +203,17 @@ public class Car : MonoBehaviour
         float dmg = model.GetBaseDamage();
         if (model.modelName == "Drunk Driver") dmg *= 0.75f; // i aint making a whole child class just for this
 
-        return Mathf.RoundToInt(dmg * (1 + 0.15f * level));
+        return Mathf.RoundToInt(dmg * (1 + 0.15f * carDamage.Level));
     }
 
     public float GetComputedSpeed()
     {
-        return model.GetBaseSpeed() + (2 * level);
+        return model.GetBaseSpeed() + (2 * carSpeed.Level);
     }
 
     public float GetComputedSpeed(float speed)
     {
-        return speed + (2 * level);
+        return speed + (2 * carSpeed.Level);
     }
 
 }

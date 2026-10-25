@@ -405,7 +405,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
   model: {fileID: 11400000, guid: d033d611968db23468fc77849cf338c0, type: 2}
-  level: 15
+  carSpeed: {fileID: 11400000, guid: 819c764d8f148d94ba53dfbc9829d1d9, type: 2}
+  carDamage: {fileID: 11400000, guid: 226a78886f8e29b49a9b638a629d6884, type: 2}
+  carCost: {fileID: 11400000, guid: 7aa7684c632760144af4d72a7b47d4b1, type: 2}
+  carCooldown: {fileID: 11400000, guid: 08d2f97a0f5e2a940ac473f9ad648cc6, type: 2}
 --- !u!65 &5526713506323633741
 BoxCollider:
   m_ObjectHideFlags: 0

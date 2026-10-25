@@ -20,7 +20,7 @@ public class UpgradeButton : MonoBehaviour
 
     private void OnClick()
     {
-        if (stat.Level < stat.maxLevel)
+        if (!stat.IsMaxed())
             stat.Level++;
         onUpgradeSelect.Invoke();
     }
@@ -28,9 +28,9 @@ public class UpgradeButton : MonoBehaviour
     public void SetStat(CommunityStat stat)
     {
         this.stat = stat;
-        titleText.SetText(stat.title);
-        descriptionText.SetText(stat.description);
-        if (stat.Level+1 == stat.maxLevel)
+        titleText.SetText(stat.Title);
+        descriptionText.SetText(stat.Description);
+        if (stat.IsMaxed())
         {
             levelText.SetText($"(Lv. {stat.Level} -> Lv. MAX)");
         }
