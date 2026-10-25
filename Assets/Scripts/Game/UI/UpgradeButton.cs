@@ -30,7 +30,7 @@ public class UpgradeButton : MonoBehaviour
         this.stat = stat;
         titleText.SetText(stat.title);
         descriptionText.SetText(stat.description);
-        if (stat.Level+1 == stat.maxLevel)
+        if (stat.IsMaxed())
         {
             levelText.SetText($"(Lv. {stat.Level} -> Lv. MAX)");
         }

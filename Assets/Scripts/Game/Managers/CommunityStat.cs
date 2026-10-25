@@ -19,6 +19,11 @@ public class CommunityStat : ScriptableObject
         }
     }
 
+    public bool IsMaxed()
+    {
+        return level == maxLevel;
+    }
+
     public override string ToString()
     {
         return title;
