@@ -12,7 +12,6 @@ public class Frog : MonoBehaviour, IDamageable
     private bool isHurtOnCooldown;
     private int health = 1;
     private int damage = 0;
-    private float moveSpeed = 8f;
     private int rewardValue;
 
     [NonSerialized]
@@ -24,16 +23,24 @@ public class Frog : MonoBehaviour, IDamageable
         
         health = frogType.GetComputedHealth(level);
         damage = frogType.GetComputedDamage(level);
-        moveSpeed = frogType.GetComputedSpeed(level);
+        frogHop.SetStepSize(frogType.GetComputedSpeed(level));
         rewardValue = frogType.baseRewards;
         
         isHurtOnCooldown = false;
+        
+        StartCoroutine(HopLoop());
     }
 
-    // private void Update()
-    // {
-    //     transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-    // }
+    
+    private IEnumerator HopLoop()
+    {
+        while (true)
+        {
+            frogHop.Hop(Vector3.right);
+            yield return new WaitUntil(() => !frogHop.IsHopping);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(frogType.minHopDelay, frogType.maxHopDelay));
+        }
+    }
 
     public int GetDamage()
     {

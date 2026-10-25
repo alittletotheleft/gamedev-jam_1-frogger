@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrogType
   size: 2
   baseHealth: 100
-  baseSpeed: 5.667
+  baseSpeed: 6.667
+  minHopDelay: 0.5
+  maxHopDelay: 1.5
   baseDamage: 10
   baseRewards: 0

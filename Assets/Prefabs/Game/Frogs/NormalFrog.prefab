@@ -8654,7 +8654,7 @@ GameObject:
   - component: {fileID: 1855407290309891204}
   m_Layer: 0
   m_Name: NormalFrog
-  m_TagString: Untagged
+  m_TagString: Frog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8724,7 +8724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efae8bd1287e9949805e25d2e1dfac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrogHop
-  stepSize: 4.5
+  stepSize: 10
 --- !u!65 &7797211250317372067
 BoxCollider:
   m_ObjectHideFlags: 0
