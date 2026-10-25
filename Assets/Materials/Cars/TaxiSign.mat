@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2359842831127559770
+--- !u!114 &-7177187219329609803
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CarHeadlights
+  m_Name: TaxiSign
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -132,9 +132,9 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.7284987, b: 0.3160377, a: 1}
-    - _Color: {r: 1, g: 0.7284987, b: 0.31603768, a: 1}
-    - _EmissionColor: {r: 1.0566039, g: 0.52403176, b: 0.104663596, a: 1}
+    - _BaseColor: {r: 0.7924528, g: 0.6296313, b: 0.1981132, a: 1}
+    - _Color: {r: 0.7924528, g: 0.6296313, b: 0.19811317, a: 1}
+    - _EmissionColor: {r: 1.6311817, g: 0.66659975, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
