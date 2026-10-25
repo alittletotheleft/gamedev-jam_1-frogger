@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: Assembly-CSharp::FrogWave
   frogGroups:
-  - frog: {fileID: 510733380289034616, guid: 7aad0849fc7a26b4d9d30f19d4d11da2, type: 3}
-    minimumSpawnCount: 7
-    maximumSpawnCount: 10
-    isRandomCount: 0
-    minimumSpawnCooldown: 1
-    maximumSpawnCooldown: 1.25
-    isRandomCooldown: 1
+  - smallFrog: {fileID: 0}
+    mediumFrog: {fileID: 510733380289034616, guid: 7aad0849fc7a26b4d9d30f19d4d11da2, type: 3}
+    largeFrog: {fileID: 0}
+    gigaFrog: {fileID: 0}
+    minimumTotal: 5
+    maximumTotal: 5
+    maximumLarge: 4
+    spawnGiga: 0
+    startDelay: 3
+    minimumSpawnCooldown: 2
+    maximumSpawnCooldown: 3

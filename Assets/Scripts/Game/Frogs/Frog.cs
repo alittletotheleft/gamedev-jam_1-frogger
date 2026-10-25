@@ -1,26 +1,28 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Frog : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int baseHealth = 10;
-    [SerializeField] private int baseDamage = 10;
-    [SerializeField] private float baseMoveSpeed = 10f;
-    [SerializeField] private int baseMoney = 20;
+    [SerializeField] private FrogType frogType;
     [SerializeField] private float hurtCooldown = 0.5f;
     [SerializeField] private Event onFrogDestroy;
     private bool isHurtOnCooldown;
-    private int health;
-    private int damage;
-    private float moveSpeed;
-    private int money;
+    private int health = 1;
+    private int damage = 0;
+    private float moveSpeed = 8f;
+    private int rewardValue;
+
+    [NonSerialized]
+    public int level = 0;
 
     private void Start()
     {
-        health = baseHealth;
-        damage = baseDamage;
-        moveSpeed = baseMoveSpeed;
-        money = baseMoney;
+        health = frogType.GetComputedHealth(level);
+        damage = frogType.GetComputedDamage(level);
+        moveSpeed = frogType.GetComputedSpeed(level);
+        rewardValue = frogType.baseRewards;
+        
         isHurtOnCooldown = false;
     }
 
@@ -28,17 +30,17 @@ public class Frog : MonoBehaviour, IDamageable
     {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
-    
+
     public int GetDamage()
     {
         return damage;
     }
 
-    public void Damage(int damage)
+    public void Damage(int damaged)
     {
         if (isHurtOnCooldown) return;
-        health -= damage;
-        if (health <= 0)
+        health -= damaged;
+        if (health <= 0) 
         {
             DestroySelf();
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5636899681674024950}
   - component: {fileID: 4677411779582161326}
   m_Layer: 0
-  m_Name: Frog
+  m_Name: NormalFrog
   m_TagString: Frog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,10 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096587e03396b9b47b6e54d2a0e1f5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Frog
-  baseHealth: 10
-  baseDamage: 10
-  baseMoveSpeed: 8
-  baseMoney: 20
+  frogType: {fileID: 11400000, guid: 2900bdd5ab069df45ae9e6ba4b2d9de3, type: 2}
   hurtCooldown: 0.5
   onFrogDestroy: {fileID: 11400000, guid: 84ab3ceae10b8f240a8fe5e195773d1c, type: 2}
 --- !u!65 &5636899681674024950
@@ -404,7 +401,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3e15ccb4950d60b4a89839cfd81fc003, type: 2}
+  - {fileID: 2100000, guid: ef8c975bbf14d5d45b0cbc1d7f523d74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -11,12 +11,15 @@ public class Selector : MonoBehaviour
     [SerializeField] private GameObject testCarGhost;
     [SerializeField] private GameObject ghostCar;
     [SerializeField] private Transform trajectoryParent;
+    [SerializeField] private int carLevel = 0;
 
     private LayerMask mask;
     private GameObject selectedCar;
     private bool isPlacing;
     private Action buttonCallback;
     private GameObject trajectoryInstance;
+    
+    
 
     private void Start()
     {
@@ -152,6 +155,7 @@ public class Selector : MonoBehaviour
 
         GameObject spawned = Instantiate(selectedCar, hit.transform.position, hit.transform.rotation);
         Car car = spawned.GetComponent<Car>();
+        car.level = carLevel;
         gameState.Money -= car.GetCost();
 
         Action cb = buttonCallback;

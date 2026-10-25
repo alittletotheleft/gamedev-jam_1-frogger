@@ -4893,6 +4893,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 6199498548212000382, guid: 529cf207e08687e4196ce4647dd14d07, type: 3}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6646,9 +6650,12 @@ MonoBehaviour:
   gameState: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
   frogWaves:
   - {fileID: 11400000, guid: f2b8e55acbda8f048a608a89bcc09a47, type: 2}
+  - {fileID: 11400000, guid: 5b24a2bafc16e2b41b4e37e34b4843d4, type: 2}
+  - {fileID: 11400000, guid: 40e642e56b9d3d940be7495fb05e2e1b, type: 2}
   frogSpawnParent: {fileID: 446246253}
   frogSpawnPositionStart: {fileID: 1683431215}
   frogSpawnPositionEnd: {fileID: 1994841820}
+  frogLevel: 0
 --- !u!114 &1038168255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43370,6 +43377,9 @@ MonoBehaviour:
   carSelectables: {fileID: 498699186}
   testCar: {fileID: 8696953950673638548, guid: df2851c6a53248b4a848ecae03e72fdb, type: 3}
   testCarGhost: {fileID: 8696953951019401007}
+  ghostCar: {fileID: 0}
+  trajectoryParent: {fileID: 0}
+  carLevel: 0
 --- !u!114 &1604528373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43860,6 +43870,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 6199498548212000382, guid: 7a273ea64623e6a439e222d4e90e6b74, type: 3}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -80445,6 +80459,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 6199498548212000382, guid: dfc4c28ebe7e4b14789a75a464f413e7, type: 3}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
