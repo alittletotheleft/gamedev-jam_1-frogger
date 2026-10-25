@@ -43448,6 +43448,7 @@ MonoBehaviour:
   testCarGhost: {fileID: 8696953951019401007}
   ghostCar: {fileID: 0}
   trajectoryParent: {fileID: 0}
+  carLevel: 0
 --- !u!114 &1604528373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43736,6 +43737,7 @@ MonoBehaviour:
   frogSpawnParent: {fileID: 446246253}
   frogSpawnPositionStart: {fileID: 1683431215}
   frogSpawnPositionEnd: {fileID: 1994841820}
+  frogLevel: 0
 --- !u!1 &1721985773
 GameObject:
   m_ObjectHideFlags: 0

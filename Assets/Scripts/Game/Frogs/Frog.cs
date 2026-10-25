@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(FrogHop))]
 public class Frog : MonoBehaviour, IDamageable
 {
     [SerializeField] private FrogType frogType;
     [SerializeField] private float hurtCooldown = 0.5f;
     [SerializeField] private Event onFrogDestroy;
+    private FrogHop frogHop;
     private bool isHurtOnCooldown;
     private int health = 1;
     private int damage = 0;
@@ -18,6 +20,8 @@ public class Frog : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        frogHop = GetComponent<FrogHop>();
+        
         health = frogType.GetComputedHealth(level);
         damage = frogType.GetComputedDamage(level);
         moveSpeed = frogType.GetComputedSpeed(level);
@@ -26,10 +30,10 @@ public class Frog : MonoBehaviour, IDamageable
         isHurtOnCooldown = false;
     }
 
-    private void Update()
-    {
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-    }
+    // private void Update()
+    // {
+    //     transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+    // }
 
     public int GetDamage()
     {

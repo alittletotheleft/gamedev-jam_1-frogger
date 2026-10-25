@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Frog))]
 [RequireComponent(typeof(Animator))]
 public class FrogHop : MonoBehaviour
 {

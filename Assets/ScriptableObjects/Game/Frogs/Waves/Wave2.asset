@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Wave2
   m_EditorClassIdentifier: Assembly-CSharp::FrogWave
   frogGroups:
-  - smallFrog: {fileID: 510733380289034616, guid: 97730064499ab3840a338b5e1dbeff45, type: 3}
-    mediumFrog: {fileID: 510733380289034616, guid: 7aad0849fc7a26b4d9d30f19d4d11da2, type: 3}
-    largeFrog: {fileID: 510733380289034616, guid: 963ef0aa20a16cd4fbf07d2fd186dfe1, type: 3}
-    gigaFrog: {fileID: 510733380289034616, guid: 6c9e7ae58f1cdfe4094664238c3a43b4, type: 3}
+  - smallFrog: {fileID: 4742660745013562355, guid: 7fdcd53eff4a32249818bf439c31d580, type: 3}
+    mediumFrog: {fileID: 4742660745013562355, guid: e6812d1bb733c1549ab4568a9051037a, type: 3}
+    largeFrog: {fileID: 3840113975988264281, guid: 78676cf7cad427d41a2a4916d808f7e4, type: 3}
+    gigaFrog: {fileID: 3840113975988264281, guid: e47dae36581fa9e4f8a06fc314af56a3, type: 3}
     minTotal: 4
     maxTotal: 6
     minLarge: 0

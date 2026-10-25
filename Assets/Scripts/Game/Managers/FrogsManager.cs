@@ -61,6 +61,7 @@ public class FrogsManager : MonoBehaviour
                 frog.transform.rotation
             );
             newFrog.transform.parent = frogSpawnParent;
+            // newFrog.transform.Rotate(new Vector3(0, 90, 0));
             newFrog.GetComponent<Frog>().level = frogLevel;
 
             yield return new WaitForSeconds(Mathf.Lerp(minCooldown, maxCooldown, Random.value));
