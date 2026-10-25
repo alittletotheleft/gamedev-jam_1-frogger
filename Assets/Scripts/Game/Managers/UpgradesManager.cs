@@ -23,7 +23,7 @@ public class UpgradesManager : MonoBehaviour
     {
         foreach (CommunityStat stat in statsBuffer)
         {
-            stat.Level = stat.startingLevel;
+            stat.Level = 0;
         }
     }
 

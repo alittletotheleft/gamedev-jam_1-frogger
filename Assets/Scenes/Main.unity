@@ -2781,7 +2781,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 226a78886f8e29b49a9b638a629d6884, type: 2}
   - {fileID: 11400000, guid: 819c764d8f148d94ba53dfbc9829d1d9, type: 2}
   - {fileID: 11400000, guid: c80913a4b06fa1748b2059d43fa87c46, type: 2}
-  - {fileID: 11400000, guid: 0ef185b38551dc245828c6f684925b05, type: 2}
   - {fileID: 11400000, guid: fb91df5727f54a2449632a266ba24684, type: 2}
   upgradeButtons:
   - {fileID: 1765778206}
@@ -6463,6 +6462,8 @@ MonoBehaviour:
   startingHealth: 100
   startingMoney: 300
   upgradeFrequency: 5
+  heal: {fileID: 11400000, guid: c80913a4b06fa1748b2059d43fa87c46, type: 2}
+  money: {fileID: 0}
 --- !u!114 &1038168256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43449,7 +43450,6 @@ MonoBehaviour:
   testCarGhost: {fileID: 8696953951019401007}
   ghostCar: {fileID: 0}
   trajectoryParent: {fileID: 0}
-  carLevel: 0
 --- !u!114 &1604528373
 MonoBehaviour:
   m_ObjectHideFlags: 0

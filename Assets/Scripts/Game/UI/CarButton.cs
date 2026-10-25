@@ -20,9 +20,13 @@ public class CarButton : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(SelectCar);
 
-        titleText.text = $"{car.GetName()}";
-        moneyText.text = $"$: {car.GetCost()}";
-        cooldownText.text = $"C: {car.GetCooldown():F1}";
+        titleText.SetText($"{car.GetName()}");
+    }
+
+    private void Update()
+    {
+        moneyText.SetText($"$: {car.GetCost()}");
+        cooldownText.SetText($"C: {car.GetCooldown():F1}");
     }
 
     private void SelectCar()
@@ -42,12 +46,12 @@ public class CarButton : MonoBehaviour
 
         while (time > 0)
         {
-            cooldownText.text = $"C: {time:F1}";
+            cooldownText.SetText($"C: {time:F1}");
             time -= Time.deltaTime;
             yield return null;
         }
 
         button.interactable = true;
-        cooldownText.text = $"C: {car.GetCooldown():F1}";
+        cooldownText.SetText($"C: {car.GetCooldown():F1}");
     }
 }

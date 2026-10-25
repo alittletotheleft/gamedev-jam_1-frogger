@@ -3,13 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CommStat", menuName = "ScriptableObjects/Community Stat")]
 public class CommunityStat : ScriptableObject
 {
-    public int startingLevel = 1;
-    public int maxLevel = 7;
-    public string title = "Title";
+    [SerializeField] private int maxLevel = 7;
+    [SerializeField] private string title = "Title";
     [TextArea]
-    public string description = "Description";
-    private int level;
-    
+    [SerializeField] string description = "Description";
+    private int level = 0;
+
     public int Level
     {
         get => level;
@@ -18,6 +17,10 @@ public class CommunityStat : ScriptableObject
             level = Mathf.Clamp(value, 1, maxLevel);
         }
     }
+
+    public int MaxLevel { get { return maxLevel; } }
+    public string Title { get { return title; } }
+    public string Description { get { return description; } }
 
     public bool IsMaxed()
     {

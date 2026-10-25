@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int startingHealth = 100;
     [SerializeField] private int startingMoney = 300;
     [SerializeField] private int upgradeFrequency = 5;
+    [SerializeField] private CommunityStat heal;
+    // [SerializeField] private CommunityStat maxHealth;
+    [SerializeField] private CommunityStat money;
     private FrogsManager frogsManager;
     private UIManager uIManager;
     private UpgradesManager upgradesManager;
@@ -75,9 +78,12 @@ public class GameManager : MonoBehaviour
             return;
         
         // Debug.Log("Frog destroyed :(");
+        gameState.Money += Mathf.FloorToInt(gameState.Money * 1f * ((float)money.Level+1/money.MaxLevel+1));
         gameState.WaveCount--;
+
         if (gameState.WaveCount <= 0 && gameState.WaveCount % upgradeFrequency == 0 && gameState.IsGameRunning)
         {
+            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.60f * ((float)heal.Level/heal.MaxLevel)));
             StartUpgrades();
         }
     }
