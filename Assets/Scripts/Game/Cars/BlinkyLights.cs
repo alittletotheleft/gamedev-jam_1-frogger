@@ -14,12 +14,46 @@ public class BlinkyLights : MonoBehaviour
     [SerializeField] private float minOffTime = 0.5f;
     [SerializeField] private float maxOffTime = 3f;
 
+    [Header("Material swap (defaults to the parent's renderer)")]
+    [SerializeField] private Renderer targetRenderer;
+    [SerializeField] private int materialIndex;
+    [SerializeField] private Material onMaterial;
+    [SerializeField] private Material offMaterial;
+
+    private bool canSwapMaterial;
+
     private void Awake()
     {
         if (targetLight == null)
         {
             targetLight = GetComponent<Light>();
         }
+
+        if (targetRenderer == null && transform.parent != null)
+        {
+            targetRenderer = transform.parent.GetComponent<Renderer>();
+        }
+
+        canSwapMaterial = SetUpMaterialSwap();
+    }
+
+    private bool SetUpMaterialSwap()
+    {
+        if (targetRenderer == null || offMaterial == null) return false;
+
+        var materials = targetRenderer.sharedMaterials;
+        if (materialIndex < 0 || materialIndex >= materials.Length)
+        {
+            Debug.LogWarning($"{name}: material index {materialIndex} is out of range for {targetRenderer.name}. Material swap disabled.", this);
+            return false;
+        }
+
+        if (onMaterial == null)
+        {
+            onMaterial = materials[materialIndex];
+        }
+
+        return true;
     }
 
     private void OnEnable()
@@ -36,7 +70,7 @@ public class BlinkyLights : MonoBehaviour
 
     private IEnumerator BlinkRoutine()
     {
-        targetLight.enabled = startOn;
+        SetLight(startOn);
 
         while (true)
         {
@@ -45,7 +79,18 @@ public class BlinkyLights : MonoBehaviour
                 : Random.Range(minOffTime, maxOffTime);
 
             yield return new WaitForSeconds(wait);
-            targetLight.enabled = !targetLight.enabled;
+            SetLight(!targetLight.enabled);
         }
+    }
+
+    private void SetLight(bool on)
+    {
+        targetLight.enabled = on;
+
+        if (!canSwapMaterial) return;
+
+        var materials = targetRenderer.sharedMaterials;
+        materials[materialIndex] = on ? onMaterial : offMaterial;
+        targetRenderer.sharedMaterials = materials;
     }
 }
