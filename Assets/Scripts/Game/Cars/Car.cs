@@ -57,10 +57,12 @@ public class Car : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Frog"))
         {
             IDamageable frog = other.GetComponentInParent<IDamageable>();
             frog?.Damage(damage);
+            Debug.Log($"Frog hit w/ dmg: {damage} at speed: {moveSpeed}");
         }
 
         if (other.CompareTag("Car"))
@@ -145,6 +147,7 @@ public class Car : MonoBehaviour
         if (speedChanges.TryGetValue(currentPoint, out ModelSpeed newSpeed))
         {
             moveSpeed = GetComputedSpeed(model.GetSpeed(newSpeed));
+            damage = GetComputedDamage(newSpeed); // update correspoinding damage
         }
         
         // movement
@@ -199,12 +202,17 @@ public class Car : MonoBehaviour
     
     public int GetComputedDamage()
     {
-        float dmg = model.GetBaseDamage();
-        if (model.modelName == "Drunk Driver") dmg *= 0.75f; // i aint making a whole child class just for this
+        return GetComputedDamage(model.speedType);
+    }
+    
+    public int GetComputedDamage(ModelSpeed speed)
+    {
+        float dmg = model.GetDamage(speed);
+        if (model.modelName == "Drunk Driver") dmg *= 0.667f; // i aint making a whole child class just for this
 
         return Mathf.RoundToInt(dmg * (1 + 0.15f * level));
     }
-
+    
     public float GetComputedSpeed()
     {
         return model.GetBaseSpeed() + (2 * level);
