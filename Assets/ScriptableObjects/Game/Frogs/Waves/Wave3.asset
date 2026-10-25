@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d9f22015381644d98dda97cabada9a, type: 3}
+  m_Name: Wave3
+  m_EditorClassIdentifier: Assembly-CSharp::FrogWave
+  frogGroups:
+  - smallFrog: {fileID: 510733380289034616, guid: 97730064499ab3840a338b5e1dbeff45, type: 3}
+    mediumFrog: {fileID: 510733380289034616, guid: 7aad0849fc7a26b4d9d30f19d4d11da2, type: 3}
+    largeFrog: {fileID: 510733380289034616, guid: 963ef0aa20a16cd4fbf07d2fd186dfe1, type: 3}
+    gigaFrog: {fileID: 510733380289034616, guid: 6c9e7ae58f1cdfe4094664238c3a43b4, type: 3}
+    minimumTotal: 1
+    maximumTotal: 10
+    maximumLarge: 4
+    spawnGiga: 0
+    minimumSpawnCooldown: 0.75
+    maximumSpawnCooldown: 1.5
