@@ -8,9 +8,12 @@ public class Frog : MonoBehaviour, IDamageable
     [SerializeField] private FrogType frogType;
     [SerializeField] private float hurtCooldown = 0.5f;
     [SerializeField] private Event onFrogDestroy;
+    [SerializeField] private HealthBar healthBar;
+    
     private FrogHop frogHop;
     private bool isHurtOnCooldown;
     private int health = 1;
+    private int maxHealth = 1;
     private int damage = 0;
     private int rewardValue;
 
@@ -22,11 +25,13 @@ public class Frog : MonoBehaviour, IDamageable
         frogHop = GetComponent<FrogHop>();
         
         health = frogType.GetComputedHealth(level);
+        maxHealth = health;
         damage = frogType.GetComputedDamage(level);
         frogHop.SetStepSize(frogType.GetComputedSpeed(level));
         rewardValue = frogType.baseRewards;
         
         isHurtOnCooldown = false;
+        healthBar.SetMaxHealth(maxHealth);
         
         StartCoroutine(HopLoop());
     }
@@ -51,6 +56,7 @@ public class Frog : MonoBehaviour, IDamageable
     {
         if (isHurtOnCooldown) return;
         health -= damaged;
+        healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0) 
         {
             DestroySelf();

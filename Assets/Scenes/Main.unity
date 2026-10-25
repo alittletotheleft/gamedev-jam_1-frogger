@@ -43739,7 +43739,7 @@ MonoBehaviour:
   frogSpawnParent: {fileID: 446246253}
   frogSpawnPositionStart: {fileID: 1683431215}
   frogSpawnPositionEnd: {fileID: 1994841820}
-  frogLevel: 30
+  frogLevel: 0
 --- !u!1 &1721985773
 GameObject:
   m_ObjectHideFlags: 0
