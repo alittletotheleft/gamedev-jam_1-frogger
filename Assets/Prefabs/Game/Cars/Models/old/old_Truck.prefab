@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 5526713506323633741}
   - component: {fileID: 3491352898803386656}
   m_Layer: 0
-  m_Name: Taxi
+  m_Name: old_Truck
   m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4a8b4528e54444b9d9cd62413e92ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Car
-  model: {fileID: 11400000, guid: 63485ceed7035fb4e9c860336f7b62a7, type: 2}
+  model: {fileID: 11400000, guid: c4bdc688007c8254eba5f73225378d73, type: 2}
   carSpeed: {fileID: 11400000, guid: 819c764d8f148d94ba53dfbc9829d1d9, type: 2}
   carDamage: {fileID: 11400000, guid: 226a78886f8e29b49a9b638a629d6884, type: 2}
   carCost: {fileID: 11400000, guid: 7aa7684c632760144af4d72a7b47d4b1, type: 2}

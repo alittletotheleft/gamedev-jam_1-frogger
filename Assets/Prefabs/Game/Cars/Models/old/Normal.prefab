@@ -270,6 +270,7 @@ MonoBehaviour:
   m_UnmodifiedMeshVersion: 1737
   m_Size: {x: 0.5, y: 0.75, z: 0.75}
   m_LocalCenter: {x: 0, y: 0, z: 0}
+  m_PivotRatio: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -843,6 +844,7 @@ MonoBehaviour:
   m_UnmodifiedMeshVersion: 2471
   m_Size: {x: 1.5, y: 1, z: 0.5}
   m_LocalCenter: {x: 0, y: 0, z: 0}
+  m_PivotRatio: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -931,14 +933,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489005436536416886}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000029504295}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2549106742781587608}
   m_Father: {fileID: 4081944388760034344}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &1641941109662302591
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4081944388760034344}
   m_Layer: 0
-  m_Name: BasicCar
+  m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,6 +1278,7 @@ MonoBehaviour:
   m_UnmodifiedMeshVersion: 1737
   m_Size: {x: 0.5, y: 0.75, z: 0.75}
   m_LocalCenter: {x: 0, y: 0, z: 0}
+  m_PivotRatio: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -1986,6 +1989,7 @@ MonoBehaviour:
   m_UnmodifiedMeshVersion: 2471
   m_Size: {x: 1.5, y: 1, z: 0.5}
   m_LocalCenter: {x: 0, y: 0, z: 0}
+  m_PivotRatio: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:

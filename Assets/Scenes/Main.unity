@@ -4729,7 +4729,7 @@ PrefabInstance:
     - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: car
       value: 
-      objectReference: {fileID: 6199498548212000382, guid: 83061043895eba8438d068cbcba47757, type: 3}
+      objectReference: {fileID: 733152458484772086, guid: 6fcf719a7d52051488ac2bfcdd5c8267, type: 3}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -44203,7 +44203,7 @@ PrefabInstance:
     - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: car
       value: 
-      objectReference: {fileID: 6199498548212000382, guid: 7a273ea64623e6a439e222d4e90e6b74, type: 3}
+      objectReference: {fileID: 5585365006188404586, guid: faec19548592a7545b3653baacb1a825, type: 3}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -80792,7 +80792,7 @@ PrefabInstance:
     - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: car
       value: 
-      objectReference: {fileID: 6199498548212000382, guid: 529cf207e08687e4196ce4647dd14d07, type: 3}
+      objectReference: {fileID: 1145428929872087023, guid: d6e81fcadbfc1424da26c245e20f4593, type: 3}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -81381,6 +81381,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 6033951186076302730, guid: 0a3e19ad23ee6524b9ad13ef2b03c24e, type: 3}
     - target: {fileID: 3797456349067168796, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_MaxWidth
       value: Infinity
