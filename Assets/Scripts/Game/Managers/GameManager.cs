@@ -5,8 +5,6 @@ public enum State {
     Wave, Upgrades
 }
 
-[RequireComponent(typeof(FrogsManager))]
-[RequireComponent(typeof(UIManager))]
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameState gameState;
@@ -14,11 +12,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int startingMoney = 300;
     private FrogsManager frogsManager;
     private UIManager uIManager;
+    private UpgradesManager upgradesManager;
 
     private void Start()
     {
-        frogsManager = GetComponent<FrogsManager>();
-        uIManager = GetComponent<UIManager>();
+        frogsManager = GetComponentInChildren<FrogsManager>();
+        uIManager = GetComponentInChildren<UIManager>();
+        upgradesManager = GetComponentInChildren<UpgradesManager>();
 
         gameState.IsGameRunning = false;
 
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     private void StartUpgrades()
     {
         gameState.State = State.Upgrades;
-
+        upgradesManager.InitializeUpgrades();
     }
 
     public void OnFrogEnter(int damage)
@@ -79,5 +79,10 @@ public class GameManager : MonoBehaviour
         {
             StartUpgrades();
         }
+    }
+
+    public void OnUpgradeSelect()
+    {
+        StartNextWave();
     }
 }

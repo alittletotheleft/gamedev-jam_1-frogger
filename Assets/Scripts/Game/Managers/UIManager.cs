@@ -30,6 +30,11 @@ public class UIManager : MonoBehaviour
                 if (!upgradesUI.activeSelf)
                     upgradesUI.SetActive(true);
             }
+            else
+            {
+                if (upgradesUI.activeSelf)
+                    upgradesUI.SetActive(false);
+            }
         }
         else
         {
