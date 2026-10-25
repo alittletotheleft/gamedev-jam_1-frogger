@@ -21,5 +21,6 @@ MonoBehaviour:
     maximumTotal: 5
     maximumLarge: 4
     spawnGiga: 0
+    startDelay: 3
     minimumSpawnCooldown: 2
     maximumSpawnCooldown: 3

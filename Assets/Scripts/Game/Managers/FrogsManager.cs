@@ -30,7 +30,7 @@ public class FrogsManager : MonoBehaviour
             FrogGroup group = wave.frogGroups[i];
             List<GameObject> spawnList = group.BuildSpawnList();
 
-            StartCoroutine(FrogSpawning(spawnList, group.startDelay, group.minimumSpawnCooldown, group.maximumSpawnCooldown));
+            StartCoroutine(FrogSpawning(spawnList, group.startDelay, group.minSpawnCooldown, group.maxSpawnCooldown));
             total += spawnList.Count;
         }
 

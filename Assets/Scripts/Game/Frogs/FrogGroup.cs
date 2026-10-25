@@ -14,18 +14,19 @@ public class FrogGroup
 
     [Header("Counts")]
     [Tooltip("Total group size")]
-    public int minimumTotal = 1;
-    public int maximumTotal = 10;
-    [Tooltip("Maximum large frogs. Minimum is 0.")]
-    public int maximumLarge = 4;
+    public int minTotal = 1;
+    public int maxTotal = 10;
+    [Tooltip("Maximum large frogs.")]
+    public int minLarge = 1;
+    public int maxLarge = 4;
     [Tooltip("If true, one giga frog is added to this group.")]
     public bool spawnGiga = false;
     
     [Header("Cooldown")]
     [Tooltip("Seconds after the wave starts before this group's first frog spawns.")]
     public float startDelay = 0f;
-    public float minimumSpawnCooldown = 0.75f;
-    public float maximumSpawnCooldown = 1.5f;
+    public float minSpawnCooldown = 1f;
+    public float maxSpawnCooldown = 2f;
     
     public List<GameObject> BuildSpawnList()
     {
@@ -34,9 +35,9 @@ public class FrogGroup
         bool hasLarge = largeFrog != null;
         bool hasGiga = gigaFrog != null;
 
-        int total = Random.Range(minimumTotal, maximumTotal + 1);
+        int total = Random.Range(minTotal, maxTotal + 1);
 
-        int large = hasLarge ? Random.Range(0, Mathf.Min(maximumLarge, total) + 1) : 0;
+        int large = hasLarge ? Random.Range(minLarge, Mathf.Min(maxLarge, total) + 1) : 0;
         int rest = total - large;
 
         int small = 0;
