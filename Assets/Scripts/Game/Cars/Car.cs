@@ -7,7 +7,7 @@ public class Car : MonoBehaviour
     [Header("Car Model")]
     [SerializeField] private CarModel model;
     
-    //TODO: REFACTOR THIS TO THE PLAYER LEVEL
+    [NonSerialized]
     public int level = 0;
     
     private int damage;
