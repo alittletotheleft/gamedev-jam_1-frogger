@@ -1,5 +1,6 @@
 /.vscode
 /.idea
+/ProjectSettings/Packages/com.unity.probuilder/Settings.json
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
