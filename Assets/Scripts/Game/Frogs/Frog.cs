@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(FrogHop))]
 public class Frog : MonoBehaviour, IDamageable
 {
+    [SerializeField] private GameState gameState;
+    [SerializeField] private CommunityStat money;
+    [Space]
     [SerializeField] private FrogType frogType;
     [SerializeField] private float hurtCooldown = 0.5f;
     [SerializeField] private Event onFrogDestroy;
@@ -73,6 +76,7 @@ public class Frog : MonoBehaviour, IDamageable
 
     private void DestroySelf()
     {
+        gameState.Money += Mathf.FloorToInt(rewardValue * 0.50f * ((float)money.Level+1/money.MaxLevel+1)) ;
         onFrogDestroy.Invoke();
         Destroy(gameObject);
     }

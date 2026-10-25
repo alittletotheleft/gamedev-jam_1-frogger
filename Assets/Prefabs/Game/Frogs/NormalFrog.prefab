@@ -8710,6 +8710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096587e03396b9b47b6e54d2a0e1f5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Frog
+  gameState: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
+  money: {fileID: 11400000, guid: fb91df5727f54a2449632a266ba24684, type: 2}
   frogType: {fileID: 11400000, guid: 2900bdd5ab069df45ae9e6ba4b2d9de3, type: 2}
   hurtCooldown: 0.5
   onFrogDestroy: {fileID: 11400000, guid: 84ab3ceae10b8f240a8fe5e195773d1c, type: 2}
