@@ -43,10 +43,10 @@ public class CarModel : ScriptableObject
 
     private readonly float[,] damageMatrix =
     {
-        {0, 0, 50},
         {0, 0, 70},
+        {0, 0, 85},
         {0, 60, 100},
-        {55, 80, 120}
+        {30, 80, 120}
     };
 
     private readonly float[] carSpeeds = {23f, 34.375f, 50f, 78.125f};
