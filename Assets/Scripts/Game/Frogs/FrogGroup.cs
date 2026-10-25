@@ -20,8 +20,10 @@ public class FrogGroup
     public int maximumLarge = 4;
     [Tooltip("If true, one giga frog is added to this group.")]
     public bool spawnGiga = false;
-
+    
     [Header("Cooldown")]
+    [Tooltip("Seconds after the wave starts before this group's first frog spawns.")]
+    public float startDelay = 0f;
     public float minimumSpawnCooldown = 0.75f;
     public float maximumSpawnCooldown = 1.5f;
     

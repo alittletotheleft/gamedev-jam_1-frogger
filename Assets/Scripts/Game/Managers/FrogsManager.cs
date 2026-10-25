@@ -30,7 +30,7 @@ public class FrogsManager : MonoBehaviour
             FrogGroup group = wave.frogGroups[i];
             List<GameObject> spawnList = group.BuildSpawnList();
 
-            StartCoroutine(FrogSpawning(spawnList, group.minimumSpawnCooldown, group.maximumSpawnCooldown));
+            StartCoroutine(FrogSpawning(spawnList, group.startDelay, group.minimumSpawnCooldown, group.maximumSpawnCooldown));
             total += spawnList.Count;
         }
 
@@ -44,8 +44,11 @@ public class FrogsManager : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private IEnumerator FrogSpawning(List<GameObject> spawnList, float minCooldown, float maxCooldown)
+    private IEnumerator FrogSpawning(List<GameObject> spawnList, float startDelay, float minCooldown, float maxCooldown)
     {
+        if (startDelay > 0f)
+            yield return new WaitForSeconds(startDelay);
+
         foreach (GameObject frog in spawnList)
         {
             GameObject newFrog = Instantiate(
