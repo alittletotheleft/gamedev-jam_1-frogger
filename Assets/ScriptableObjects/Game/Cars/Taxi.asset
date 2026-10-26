@@ -15,9 +15,10 @@ MonoBehaviour:
   modelName: Taxi
   size: 1
   speedType: 1
-  cost: 160
-  cooldown: 8
+  cost: 200
+  cooldown: 6
   pathTrajectory: {fileID: 1170575237593212978, guid: f106888579472a540a8dbfcd1a5f3d76, type: 3}
+  pathOffset: {x: 0, y: 0, z: -8.5}
   pointSpeeds:
   - pointIndexApproaching: 1
     speed: 1

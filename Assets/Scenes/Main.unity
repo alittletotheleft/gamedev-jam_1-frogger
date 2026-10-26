@@ -7395,7 +7395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_text
-      value: 'C: 8.0'
+      value: 'C: 6.0'
       objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7511,7 +7511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934019576862162809, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_text
-      value: '$: 160'
+      value: '$: 200'
       objectReference: {fileID: 0}
     - target: {fileID: 5328021737883022398, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10061,7 +10061,7 @@ MonoBehaviour:
   gameState: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
   startingHealth: 100
   startingMoney: 300
-  passiveMoney: 15
+  passiveMoney: 25
   moneyFrequency: 2
   upgradeFrequency: 4
   heal: {fileID: 11400000, guid: c80913a4b06fa1748b2059d43fa87c46, type: 2}
@@ -49873,7 +49873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_text
-      value: 'C: 3.0'
+      value: 'C: 8.0'
       objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -49993,7 +49993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934019576862162809, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_text
-      value: '$: 50'
+      value: '$: 150'
       objectReference: {fileID: 0}
     - target: {fileID: 5328021737883022398, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -87958,7 +87958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_text
-      value: 'C: 10.0'
+      value: 'C: 15.0'
       objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -88078,7 +88078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4934019576862162809, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_text
-      value: '$: 120'
+      value: '$: 300'
       objectReference: {fileID: 0}
     - target: {fileID: 5328021737883022398, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -89197,7 +89197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_text
-      value: 'C: 6.0'
+      value: 'C: 5.0'
       objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y

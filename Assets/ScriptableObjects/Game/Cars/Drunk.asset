@@ -15,7 +15,8 @@ MonoBehaviour:
   modelName: Drunk Driver
   size: 1
   speedType: 3
-  cost: 50
-  cooldown: 3
+  cost: 150
+  cooldown: 8
   pathTrajectory: {fileID: 5990892752729955731, guid: 5d8830a0f46ea5446b920f01be189cb2, type: 3}
-  rotationSpeed: 10
+  pathOffset: {x: 0, y: 0, z: -8.5}
+  pointSpeeds: []

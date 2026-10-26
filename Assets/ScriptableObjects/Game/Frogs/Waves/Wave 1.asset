@@ -17,8 +17,8 @@ MonoBehaviour:
     mediumFrog: {fileID: 4742660745013562355, guid: e6812d1bb733c1549ab4568a9051037a, type: 3}
     largeFrog: {fileID: 0}
     gigaFrog: {fileID: 0}
-    minTotal: 1
-    maxTotal: 10
+    minTotal: 3
+    maxTotal: 5
     minLarge: 1
     maxLarge: 4
     spawnGiga: 0
