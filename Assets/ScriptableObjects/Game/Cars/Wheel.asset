@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c89ceab7b32eda24a9f6e85568a7741d, type: 3}
-  m_Name: Delivery
+  m_Name: Wheel
   m_EditorClassIdentifier: Assembly-CSharp::CarModel
-  modelName: Delivery Driver
+  modelName: Wheel
   size: 0
   speedType: 3
   cost: 50
   cooldown: 3
   pathTrajectory: {fileID: 3278024416375318375, guid: e32a3ca9908481047adc429c2acc5f11, type: 3}
+  pathOffset: {x: 0, y: 0, z: -8.5}
+  pointSpeeds: []

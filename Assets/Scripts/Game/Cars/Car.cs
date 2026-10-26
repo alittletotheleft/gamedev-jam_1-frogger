@@ -69,10 +69,14 @@ public class Car : MonoBehaviour
         if (other.CompareTag("Car"))
         {
             if (hasExploded) return;
-            hasExploded = true;
-
             Car otherCar = other.GetComponentInParent<Car>();
-            if (otherCar != null) otherCar.hasExploded = true;
+            
+            if (otherCar != null)
+            {
+                if (otherCar.GetName() == "Wheel") return;
+                otherCar.hasExploded = true;
+            }
+            hasExploded = true;
 
             // Large vehicle colisions rewards bigger explosions and damage
             float explosionRadius;
@@ -217,7 +221,7 @@ public class Car : MonoBehaviour
     {
         float dmg = model.GetDamage(speed);
         if (model.modelName == "Drunk Driver") dmg *= 0.667f; // i aint making a whole child class just for this
-
+        if (model.modelName == "Wheel") dmg *= 0.4f;
         return Mathf.RoundToInt(dmg * (1 + 0.15f * carDamage.Level));
     }
     
@@ -234,6 +238,11 @@ public class Car : MonoBehaviour
     public Vector3 GetPathOffset()
     {
         return model.pathOffset;
+    }
+
+    public string GetMdoel()
+    {
+        return model.modelName;
     }
 
 }

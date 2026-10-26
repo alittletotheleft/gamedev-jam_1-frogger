@@ -47,12 +47,12 @@ public class CarModel : ScriptableObject
         {0, 0, 70},
         {0, 50, 85},
         {0, 60, 100},
-        {30, 90, 120}
+        {50, 90, 120}
     };
 
     private readonly float[] carSpeeds = {23f, 34.375f, 50f, 78.125f};
     
-    private readonly float[] rotationSpeeds = {5f, 7f, 8f, 10f};
+    private readonly float[] rotationSpeeds = {4f, 6f, 7f, 9f};
 
     public float GetBaseSpeed()
     {
