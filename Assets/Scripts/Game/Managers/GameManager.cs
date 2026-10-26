@@ -115,7 +115,8 @@ public class GameManager : MonoBehaviour
 
         if (gameState.WaveCount <= 0 && gameState.IsGameRunning)
         {
-            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.60f * ((float)heal.Level / heal.MaxLevel)));
+            // heal for 5% up to 30% at max level
+            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.05f + 0.30f * ((float)heal.Level / heal.MaxLevel)));
 
             if (gameState.Waves % upgradeFrequency == 0)
                 StartUpgrades();

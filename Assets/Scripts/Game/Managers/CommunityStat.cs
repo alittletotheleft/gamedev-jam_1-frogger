@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CommStat", menuName = "ScriptableObjects/Community Stat")]
 public class CommunityStat : ScriptableObject
 {
-    [SerializeField] private int maxLevel = 7;
+    [SerializeField] private int maxLevel = 15;
     [SerializeField] private string title = "Title";
     [TextArea]
     [SerializeField] string description = "Description";
