@@ -48996,9 +48996,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FrogsManager
   gameState: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
   frogWaves:
-  - {fileID: 11400000, guid: 40e642e56b9d3d940be7495fb05e2e1b, type: 2}
   - {fileID: 11400000, guid: f2b8e55acbda8f048a608a89bcc09a47, type: 2}
   - {fileID: 11400000, guid: 5b24a2bafc16e2b41b4e37e34b4843d4, type: 2}
+  - {fileID: 11400000, guid: 40e642e56b9d3d940be7495fb05e2e1b, type: 2}
+  - {fileID: 11400000, guid: ad4f024a7f17c2147ba25268c8241fa5, type: 2}
+  - {fileID: 11400000, guid: 3623d95ca699cfa478eece7e874ad2f8, type: 2}
+  - {fileID: 11400000, guid: e15f9879e6291f5429bf4544616328d6, type: 2}
+  - {fileID: 11400000, guid: 83009b14d959e104ca611da9c0435ad5, type: 2}
+  - {fileID: 11400000, guid: a8942cf14e39d2a498f60c7567fd12cb, type: 2}
+  - {fileID: 11400000, guid: 01aee7f7261d0aa4ab413b28010224af, type: 2}
+  - {fileID: 11400000, guid: 733ba536fe631cc48bd6378ea00a0c2a, type: 2}
+  - {fileID: 11400000, guid: 5e1f06a176f6c244cb6b943aedf8f8df, type: 2}
+  - {fileID: 11400000, guid: 79858db6c2740a941bc35364c269d74f, type: 2}
   frogSpawnParent: {fileID: 446246253}
   frogSpawnPositionStart: {fileID: 1683431215}
   frogSpawnPositionEnd: {fileID: 1994841820}

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92d9f22015381644d98dda97cabada9a, type: 3}
-  m_Name: Wave3
+  m_Name: Wave 1
   m_EditorClassIdentifier: Assembly-CSharp::FrogWave
   frogGroups:
-  - smallFrog: {fileID: 4742660745013562355, guid: 7fdcd53eff4a32249818bf439c31d580, type: 3}
+  - smallFrog: {fileID: 0}
     mediumFrog: {fileID: 4742660745013562355, guid: e6812d1bb733c1549ab4568a9051037a, type: 3}
-    largeFrog: {fileID: 3840113975988264281, guid: 78676cf7cad427d41a2a4916d808f7e4, type: 3}
-    gigaFrog: {fileID: 3840113975988264281, guid: e47dae36581fa9e4f8a06fc314af56a3, type: 3}
-    minTotal: 6
+    largeFrog: {fileID: 0}
+    gigaFrog: {fileID: 0}
+    minTotal: 1
     maxTotal: 10
     minLarge: 1
     maxLarge: 4
-    spawnGiga: 1
-    startDelay: 0
+    spawnGiga: 0
+    startDelay: 3
     minSpawnCooldown: 1
     maxSpawnCooldown: 2

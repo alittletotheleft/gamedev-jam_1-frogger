@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d9f22015381644d98dda97cabada9a, type: 3}
+  m_Name: Wave 7
+  m_EditorClassIdentifier: Assembly-CSharp::FrogWave
+  frogGroups:
+  - smallFrog: {fileID: 4742660745013562355, guid: 7fdcd53eff4a32249818bf439c31d580, type: 3}
+    mediumFrog: {fileID: 4742660745013562355, guid: e6812d1bb733c1549ab4568a9051037a, type: 3}
+    largeFrog: {fileID: 3840113975988264281, guid: 78676cf7cad427d41a2a4916d808f7e4, type: 3}
+    gigaFrog: {fileID: 3840113975988264281, guid: e47dae36581fa9e4f8a06fc314af56a3, type: 3}
+    minTotal: 12
+    maxTotal: 20
+    minLarge: 4
+    maxLarge: 8
+    spawnGiga: 0
+    startDelay: 0
+    minSpawnCooldown: 0.75
+    maxSpawnCooldown: 2.5
+  - smallFrog: {fileID: 4742660745013562355, guid: 7fdcd53eff4a32249818bf439c31d580, type: 3}
+    mediumFrog: {fileID: 4742660745013562355, guid: e6812d1bb733c1549ab4568a9051037a, type: 3}
+    largeFrog: {fileID: 3840113975988264281, guid: 78676cf7cad427d41a2a4916d808f7e4, type: 3}
+    gigaFrog: {fileID: 3840113975988264281, guid: e47dae36581fa9e4f8a06fc314af56a3, type: 3}
+    minTotal: 12
+    maxTotal: 16
+    minLarge: 4
+    maxLarge: 4
+    spawnGiga: 0
+    startDelay: 12
+    minSpawnCooldown: 1
+    maxSpawnCooldown: 3
+  - smallFrog: {fileID: 4742660745013562355, guid: 7fdcd53eff4a32249818bf439c31d580, type: 3}
+    mediumFrog: {fileID: 4742660745013562355, guid: e6812d1bb733c1549ab4568a9051037a, type: 3}
+    largeFrog: {fileID: 3840113975988264281, guid: 78676cf7cad427d41a2a4916d808f7e4, type: 3}
+    gigaFrog: {fileID: 3840113975988264281, guid: e47dae36581fa9e4f8a06fc314af56a3, type: 3}
+    minTotal: 8
+    maxTotal: 14
+    minLarge: 1
+    maxLarge: 1
+    spawnGiga: 0
+    startDelay: 20
+    minSpawnCooldown: 0.75
+    maxSpawnCooldown: 2

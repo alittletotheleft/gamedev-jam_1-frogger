@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MediumFrog
   m_EditorClassIdentifier: Assembly-CSharp::FrogType
   size: 1
-  baseHealth: 60
+  baseHealth: 80
   baseSpeed: 7
   minHopDelay: 0
   maxHopDelay: 1
