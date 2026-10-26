@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GigaFrog
   m_EditorClassIdentifier: Assembly-CSharp::FrogType
   size: 3
-  baseHealth: 200
+  baseHealth: 220
   baseSpeed: 12.5
   minHopDelay: 3
   maxHopDelay: 6
