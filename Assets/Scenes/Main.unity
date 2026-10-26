@@ -8506,7 +8506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   sun: {fileID: 410087040}
-  cycleDurationMinutes: 1
+  cycleDurationMinutes: 6
   startHour: 10
   paused: 0
   sunYaw: 80
@@ -45975,7 +45975,7 @@ MonoBehaviour:
   frogSpawnParent: {fileID: 446246253}
   frogSpawnPositionStart: {fileID: 1683431215}
   frogSpawnPositionEnd: {fileID: 1994841820}
-  frogLevel: 0
+  frogLevel: 30
 --- !u!1 &1721985773
 GameObject:
   m_ObjectHideFlags: 0
