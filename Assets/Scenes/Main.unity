@@ -4917,7 +4917,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1342828991}
+  - {fileID: 426139035}
   - {fileID: 652523156}
   - {fileID: 220569202}
   m_Father: {fileID: 0}
@@ -6075,12 +6075,12 @@ RectTransform:
   - {fileID: 45092181}
   - {fileID: 150002884}
   - {fileID: 1339799273}
-  m_Father: {fileID: 1342828991}
+  m_Father: {fileID: 354730413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: 0}
-  m_SizeDelta: {x: 200, y: 720}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &426139036
 MonoBehaviour:
@@ -7424,6 +7424,14 @@ PrefabInstance:
       propertyPath: car
       value: 
       objectReference: {fileID: 733152458484772086, guid: 6fcf719a7d52051488ac2bfcdd5c8267, type: 3}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: waveUnlock
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11988,42 +11996,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339799272}
   m_CullTransparentMesh: 1
---- !u!1 &1342828990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1342828991}
-  m_Layer: 5
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1342828991
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342828990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 426139035}
-  m_Father: {fileID: 354730413}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 640, y: 0}
-  m_SizeDelta: {x: 200, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1351292360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3795191501305828280, guid: c1f16d4a6be5a88498367208a66da45a, type: 3}
@@ -49628,6 +49600,14 @@ PrefabInstance:
       propertyPath: car
       value: 
       objectReference: {fileID: 5585365006188404586, guid: faec19548592a7545b3653baacb1a825, type: 3}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: waveUnlock
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -87716,6 +87696,14 @@ PrefabInstance:
       propertyPath: car
       value: 
       objectReference: {fileID: 7867297275426126934, guid: d6e81fcadbfc1424da26c245e20f4593, type: 3}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: waveUnlock
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3875259624916215350, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -88952,6 +88940,10 @@ PrefabInstance:
       propertyPath: car
       value: 
       objectReference: {fileID: 6033951186076302730, guid: 0a3e19ad23ee6524b9ad13ef2b03c24e, type: 3}
+    - target: {fileID: 3691550273088711869, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
     - target: {fileID: 3797456349067168796, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_MaxWidth
       value: Infinity

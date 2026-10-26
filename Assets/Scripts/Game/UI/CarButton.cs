@@ -7,13 +7,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class CarButton : MonoBehaviour
 {
+    [SerializeField] private GameState gameState;
     [SerializeField] private Car car;
     [SerializeField] private CarSelectEvent OnCarSelect;
-    
+    [Space]
+    [SerializeField] private int waveUnlock = 0;
     [SerializeField] private TMP_Text titleText;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text cooldownText;
     private Button button;
+    private bool isCooldown;
 
     private void Start()
     {
@@ -27,6 +30,19 @@ public class CarButton : MonoBehaviour
     {
         moneyText.SetText($"$: {car.GetCost()}");
         cooldownText.SetText($"C: {car.GetCooldown():F1}");
+        if (!isCooldown)
+        {
+            if (gameState.Waves < waveUnlock)
+            {
+                if (button.interactable)
+                    button.interactable = false;
+            }
+            else
+            {
+                if (!button.interactable)
+                    button.interactable = true;
+            }
+        }
     }
 
     private void SelectCar()
@@ -43,6 +59,7 @@ public class CarButton : MonoBehaviour
     {
         button.interactable = false;
         float time = car.GetCooldown();
+        isCooldown = true;
 
         while (time > 0)
         {
@@ -53,6 +70,7 @@ public class CarButton : MonoBehaviour
 
         button.interactable = true;
         cooldownText.SetText($"C: {car.GetCooldown():F1}");
+        isCooldown = false;
     }
 
     private void OnDrawGizmos()
