@@ -665,8 +665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240bb1f9947fd1246b08e056c5da2f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarButton
+  gameState: {fileID: 11400000, guid: ec69df62c2a7e4a46a11ae7b97e71872, type: 2}
   car: {fileID: 6199498548212000382, guid: df2851c6a53248b4a848ecae03e72fdb, type: 3}
   OnCarSelect: {fileID: 11400000, guid: 8279cb5db8540f04e95729e161367515, type: 2}
+  waveUnlock: 0
   titleText: {fileID: 8155894315061295952}
   moneyText: {fileID: 4934019576862162809}
   cooldownText: {fileID: 1284314006045010056}

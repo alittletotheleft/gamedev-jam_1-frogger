@@ -28,7 +28,7 @@ public class CarButton : MonoBehaviour
 
     private void Update()
     {
-        moneyText.SetText($"$: {car.GetCost()}");
+        moneyText.SetText($"₱: {car.GetCost()}");
         cooldownText.SetText($"C: {car.GetCooldown():F1}");
         if (!isCooldown)
         {
