@@ -14,10 +14,9 @@ public class CommunityStat : ScriptableObject
         get => level;
         set
         {
-            level = Mathf.Clamp(value, 1, maxLevel);
+            level = Mathf.Clamp(value, 0, maxLevel);
         }
     }
-
     public int MaxLevel { get { return maxLevel; } }
     public string Title { get { return title; } }
     public string Description { get { return description; } }

@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        upgradesManager.InitializeStats();
+
         gameState.MaxHealth = startingHealth;
         gameState.Health = startingHealth;
         gameState.Money = startingMoney;

@@ -21,10 +21,13 @@ public class UpgradesManager : MonoBehaviour
 
     public void InitializeStats()
     {
-        foreach (CommunityStat stat in statsBuffer)
+        foreach (CommunityStat stat in stats)
         {
             stat.Level = 0;
         }
+
+        statsBuffer = new List<CommunityStat>(stats);
+        ShuffleStats();
     }
 
     public void InitializeUpgrades()

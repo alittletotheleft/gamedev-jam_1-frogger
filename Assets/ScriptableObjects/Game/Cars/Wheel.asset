@@ -15,8 +15,8 @@ MonoBehaviour:
   modelName: Wheel
   size: 0
   speedType: 3
-  cost: 50
-  cooldown: 3
+  cost: 0
+  cooldown: 1
   pathTrajectory: {fileID: 3278024416375318375, guid: e32a3ca9908481047adc429c2acc5f11, type: 3}
   pathOffset: {x: 0, y: 0, z: -8.5}
   pointSpeeds: []
