@@ -16,5 +16,7 @@ MonoBehaviour:
   size: 1
   speedType: 2
   cost: 100
-  cooldown: 6
+  cooldown: 5
   pathTrajectory: {fileID: 3278024416375318375, guid: e32a3ca9908481047adc429c2acc5f11, type: 3}
+  pathOffset: {x: 0, y: 0, z: -8.5}
+  pointSpeeds: []

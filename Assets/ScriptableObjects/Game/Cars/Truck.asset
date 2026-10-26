@@ -15,6 +15,8 @@ MonoBehaviour:
   modelName: Truck
   size: 2
   speedType: 1
-  cost: 120
-  cooldown: 10
+  cost: 300
+  cooldown: 15
   pathTrajectory: {fileID: 1170575237593212978, guid: b7178ca5ae8b5bc4eb782708dd3f1c24, type: 3}
+  pathOffset: {x: 0, y: 0, z: -8.5}
+  pointSpeeds: []

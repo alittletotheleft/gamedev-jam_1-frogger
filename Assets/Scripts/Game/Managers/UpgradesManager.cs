@@ -68,10 +68,8 @@ public class UpgradesManager : MonoBehaviour
         // Debug.Log($"Original: " + string.Join(", ", (object[])stats));
         for (int i = 0; i < statsBuffer.Count - 1; i++)
         {
-            int index = Random.Range(0, statsBuffer.Count);
-            CommunityStat temp = statsBuffer[i];
-            statsBuffer[i] = statsBuffer[index];
-            statsBuffer[index] = temp;
+            int index = Random.Range(i, statsBuffer.Count);
+            (statsBuffer[i], statsBuffer[index]) = (statsBuffer[index], statsBuffer[i]);
         }
         // Debug.Log($"Shuffled: " + string.Join(", ", (object[])stats));
     }

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private FrogsManager frogsManager;
     private UIManager uIManager;
     private UpgradesManager upgradesManager;
-    private bool isGeneratingMoney;
+    private Coroutine moneyRoutine;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         upgradesManager = GetComponentInChildren<UpgradesManager>();
 
         gameState.IsGameRunning = false;
-        isGeneratingMoney = false;
+        moneyRoutine = null;
 
         StartGame();
     }
@@ -37,13 +37,14 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         upgradesManager.InitializeStats();
-
+    
         gameState.MaxHealth = startingHealth;
         gameState.Health = startingHealth;
         gameState.Money = startingMoney;
         gameState.Waves = 0;
+        gameState.FrogLevel = 0;
         gameState.FrogsKilled = 0;
-
+    
         gameState.IsGameOver = false;
         gameState.IsGameRunning = true;
         StartNextWave();
@@ -62,26 +63,34 @@ public class GameManager : MonoBehaviour
         gameState.Waves++;
         gameState.State = State.Wave;
         frogsManager.StartFrogSpawning();
-        if (!isGeneratingMoney)
-        {
-            isGeneratingMoney = true;
-            StartCoroutine(GenerateMoney());
-        }
+
+        // Trigger the flash on screen
+        if (uIManager != null)
+            uIManager.ShowWaveBanner(gameState.Waves);
+
+        if (moneyRoutine == null)
+            moneyRoutine = StartCoroutine(GenerateMoney());
     }
 
     private void StartUpgrades()
     {
         gameState.State = State.Upgrades;
         upgradesManager.InitializeUpgrades();
-        isGeneratingMoney = false;
+
+        if (moneyRoutine != null)
+        {
+            StopCoroutine(moneyRoutine);
+            moneyRoutine = null;
+        }
     }
 
+    
     private IEnumerator GenerateMoney()
     {
-        while (isGeneratingMoney)
+        while (true)
         {
             yield return new WaitForSeconds(moneyFrequency);
-            gameState.Money += Mathf.FloorToInt(passiveMoney + 0.50f * ((float)money.Level/money.MaxLevel));
+            gameState.Money += Mathf.FloorToInt(passiveMoney * (1f + 0.50f * ((float)money.Level / money.MaxLevel)));
         }
     }
 
@@ -101,24 +110,26 @@ public class GameManager : MonoBehaviour
     {
         if (gameState.State == State.Upgrades)
             return;
-        
-        // Debug.Log("Frog destroyed :(");
+
         gameState.WaveCount--;
 
         if (gameState.WaveCount <= 0 && gameState.IsGameRunning)
         {
-            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.60f * ((float)heal.Level/heal.MaxLevel)));
-            // gameState.Money += Mathf.FloorToInt(gameState.Money + 0.50f * ((float)money.Level+1/money.MaxLevel+1));
-            StartNextWave();
+            // heal for 5% up to 30% at max level
+            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.05f + 0.30f * ((float)heal.Level / heal.MaxLevel)));
+
             if (gameState.Waves % upgradeFrequency == 0)
-            {
                 StartUpgrades();
-            }
+            else
+                StartNextWave();
         }
     }
 
     public void OnUpgradeSelect()
     {
+        if (gameState.State != State.Upgrades)
+            return;
+
         gameState.FrogLevel++;
         StartNextWave();
     }
