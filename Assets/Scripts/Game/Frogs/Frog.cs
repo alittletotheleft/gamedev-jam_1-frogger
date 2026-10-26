@@ -12,8 +12,17 @@ public class Frog : MonoBehaviour, IDamageable
     [SerializeField] private float hurtCooldown = 0.5f;
     [SerializeField] private Event onFrogDestroy;
     [SerializeField] private HealthBar healthBar;
+
+    [Header("Death Puddle")]
+    [SerializeField] private Renderer bloodPuddlePrefab;
+    [SerializeField] private Renderer bodyRenderer;
+
+    private const float PuddleLifetime = 4f;
+    private const float NormalFrogScale = 1.25f;
+    private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
     
     private FrogHop frogHop;
+    private Transform facing;
     private bool isHurtOnCooldown;
     private int health = 1;
     private int maxHealth = 1;
@@ -24,6 +33,7 @@ public class Frog : MonoBehaviour, IDamageable
     private void Start()
     {
         frogHop = GetComponent<FrogHop>();
+        facing = transform.Find("Facing");
         
         health = frogType.GetComputedHealth(gameState.FrogLevel);
         maxHealth = health;
@@ -55,12 +65,13 @@ public class Frog : MonoBehaviour, IDamageable
 
     public void Damage(int damaged)
     {
-        if (isHurtOnCooldown) return;
+        if (isDestroyed || isHurtOnCooldown) return;
         health -= damaged;
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0) 
         {
             DestroySelf();
+            return;
         }
         StartCoroutine(StartHurtCooldown());
     }
@@ -77,11 +88,35 @@ public class Frog : MonoBehaviour, IDamageable
         if (isDestroyed) return;
         isDestroyed = true;
 
+        SpawnBloodPuddle();
+
         gameState.FrogsKilled++;
         
         gameState.Money += Mathf.FloorToInt(rewardValue * 0.50f * ((float)money.Level+1/money.MaxLevel+1));
         onFrogDestroy.Invoke();
         Destroy(gameObject);
+    }
+
+    private void SpawnBloodPuddle()
+    {
+        if (bloodPuddlePrefab == null || bodyRenderer == null) return;
+
+        // The frog root stays on the ground while the model animates its hop.
+        Vector3 position = transform.position + Vector3.up * bloodPuddlePrefab.transform.position.y;
+        Quaternion rotation = Quaternion.AngleAxis(UnityEngine.Random.Range(0f, 360f), Vector3.up)
+                              * bloodPuddlePrefab.transform.rotation;
+        Renderer puddle = Instantiate(bloodPuddlePrefab, position, rotation); // spawn
+        float scale = facing != null ? Mathf.Abs(facing.lossyScale.x) / NormalFrogScale : 1f;
+        puddle.transform.localScale = bloodPuddlePrefab.transform.localScale * scale; // scale
+
+        var properties = new MaterialPropertyBlock();
+        puddle.GetPropertyBlock(properties); // get the current properties of the puddle
+        // set the color of the puddle to match the frog's body color
+        properties.SetColor(BaseColorId, bodyRenderer.sharedMaterial.GetColor(BaseColorId));
+        puddle.SetPropertyBlock(properties);
+
+        // destroy the puddle after the specified lifetime
+        Destroy(puddle.gameObject, PuddleLifetime);
     }
     
     public void ReachPlayer()
