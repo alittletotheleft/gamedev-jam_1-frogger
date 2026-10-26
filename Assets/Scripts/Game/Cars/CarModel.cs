@@ -46,8 +46,8 @@ public class CarModel : ScriptableObject
     {
         {0, 0, 70},
         {0, 50, 85},
-        {0, 60, 100},
-        {50, 90, 120}
+        {0, 60, 120},
+        {50, 90, 140}
     };
 
     private readonly float[] carSpeeds = {23f, 34.375f, 50f, 78.125f};
