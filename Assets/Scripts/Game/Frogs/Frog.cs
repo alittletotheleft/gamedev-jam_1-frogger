@@ -19,6 +19,7 @@ public class Frog : MonoBehaviour, IDamageable
     private int maxHealth = 1;
     private int damage = 0;
     private int rewardValue;
+    private bool isDestroyed;
 
     [NonSerialized]
     public int level = 0;
@@ -76,7 +77,21 @@ public class Frog : MonoBehaviour, IDamageable
 
     private void DestroySelf()
     {
+        if (isDestroyed) return;
+        isDestroyed = true;
+
+        gameState.FrogsKilled++;
+        
         gameState.Money += Mathf.FloorToInt(rewardValue * 0.50f * ((float)money.Level+1/money.MaxLevel+1)) ;
+        onFrogDestroy.Invoke();
+        Destroy(gameObject);
+    }
+    
+    public void ReachPlayer()
+    {
+        if (isDestroyed) return;
+        isDestroyed = true;
+
         onFrogDestroy.Invoke();
         Destroy(gameObject);
     }

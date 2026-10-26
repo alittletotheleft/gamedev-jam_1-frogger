@@ -11,7 +11,7 @@ public class PlayerBox : MonoBehaviour
         {
             Frog frog = other.GetComponent<Frog>();
             OnFrogEnter.Invoke(frog.GetDamage());
-            frog.Damage(999999999);
+            frog.ReachPlayer();
         }
     }
 }
