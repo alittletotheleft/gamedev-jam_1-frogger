@@ -100,10 +100,21 @@ public class Frog : MonoBehaviour, IDamageable
         SpawnBloodPuddle();
 
         gameState.FrogsKilled++;
+
         AudioSource.PlayClipAtPoint(ows[Random.Range(0, ows.Length)], Camera.main.transform.position, owVol);
         AudioSource.PlayClipAtPoint(squishes[Random.Range(0, squishes.Length)], Camera.main.transform.position, squishVol);
         
-        gameState.Money += Mathf.FloorToInt(rewardValue * 0.50f * (((float)money.Level + 1)/ (money.MaxLevel + 1)));
+
+        float multiplier = 1f + (0.20f * money.Level);
+        int earned = Mathf.RoundToInt(rewardValue * multiplier);
+        
+        if (rewardValue > 0 && earned < 1)
+        {
+            earned = 1;
+        }
+
+        gameState.Money += earned;
+
         onFrogDestroy.Invoke();
         Destroy(gameObject);
     }
