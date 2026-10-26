@@ -230,7 +230,7 @@ public class Car : MonoBehaviour
     public int GetComputedDamage(ModelSpeed speed)
     {
         float dmg = model.GetDamage(speed);
-        if (model.modelName == "Drunk Driver") dmg *= 0.667f; // i aint making a whole child class just for this
+        if (model.modelName == "Drunk Driver") dmg *= 0.75f; // i aint making a whole child class just for this
         if (model.modelName == "Wheel") dmg *= 0.4f;
         return Mathf.RoundToInt(dmg * (1 + 0.15f * carDamage.Level));
     }

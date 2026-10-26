@@ -148,6 +148,9 @@ public class Selector : MonoBehaviour
     private void PlaceCar()
     {
         if (selectedCar == null) return;
+        
+        Car carPrefab = selectedCar.GetComponent<Car>();
+        if (gameState.Money < carPrefab.GetCost()) return; 
 
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (!Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, Mathf.Infinity, mask, QueryTriggerInteraction.Ignore))

@@ -30,18 +30,13 @@ public class CarButton : MonoBehaviour
     {
         moneyText.SetText($"₱: {car.GetCost()}");
         cooldownText.SetText($"C: {car.GetCooldown():F1}");
+
         if (!isCooldown)
         {
-            if (gameState.Waves < waveUnlock)
-            {
-                if (button.interactable)
-                    button.interactable = false;
-            }
-            else
-            {
-                if (!button.interactable)
-                    button.interactable = true;
-            }
+            bool isUnlocked = gameState.Waves >= waveUnlock;
+            bool canAfford = gameState.Money >= car.GetCost();
+
+            button.interactable = isUnlocked && canAfford;
         }
     }
 
