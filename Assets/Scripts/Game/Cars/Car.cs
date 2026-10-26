@@ -10,6 +10,8 @@ public class Car : MonoBehaviour
     [SerializeField] private CommunityStat carDamage;
     [SerializeField] private CommunityStat carCost;
     [SerializeField] private CommunityStat carCooldown;
+
+    [SerializeField] private ParticleSystem explosionParticle;
     
     private int damage;
     private float moveSpeed;
@@ -71,11 +73,10 @@ public class Car : MonoBehaviour
             if (hasExploded) return;
             Car otherCar = other.GetComponentInParent<Car>();
             
-            if (otherCar != null)
-            {
-                if (otherCar.GetName() == "Wheel") return;
-                otherCar.hasExploded = true;
-            }
+            if (otherCar == null || otherCar == this || otherCar.hasExploded) return;
+            if (otherCar.GetName() == "Wheel") return;
+
+            otherCar.hasExploded = true;
             hasExploded = true;
 
             // Large vehicle colisions rewards bigger explosions and damage
@@ -96,12 +97,8 @@ public class Car : MonoBehaviour
 
             Vector3 explosionPoint = other.ClosestPoint(new Vector3(transform.position.x, 0, transform.position.z));
 
-            // Displaying the explosion
-            // GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            // marker.transform.position = explosionPoint;
-            // marker.transform.localScale = Vector3.one * explosionRadius * 2f;
-            // Destroy(marker.GetComponent<Collider>());
-            // Destroy(marker, 10f);
+            PlayExplosion(transform.position);
+            otherCar.PlayExplosion(otherCar.transform.position);
 
             Collider[] hits = Physics.OverlapSphere(explosionPoint, explosionRadius);
             HashSet<IDamageable> damaged = new HashSet<IDamageable>();
@@ -120,6 +117,19 @@ public class Car : MonoBehaviour
             DestroySelf();
             if (otherCar != null) otherCar.DestroySelf();
         }
+    }
+
+    private void PlayExplosion(Vector3 position)
+    {
+        if (explosionParticle == null) return;
+
+        ParticleSystem explosion = Instantiate(explosionParticle, position, explosionParticle.transform.rotation);
+        if (GetSize() == ModelSize.Large)
+            explosion.transform.localScale *= 1.15f;
+
+        ParticleSystem.MainModule main = explosion.main;
+        main.stopAction = ParticleSystemStopAction.Destroy;
+        explosion.Play();
     }
 
     public void DestroySelf()
