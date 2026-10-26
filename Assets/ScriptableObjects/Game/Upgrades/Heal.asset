@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a48db614a5c63f47a30aa2635ad04f4, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: Assembly-CSharp::CommunityStat
-  startingLevel: 0
   maxLevel: 7
   title: Hospital
   description: Increase the amount you heal after each wave.
+  shortDescription: After-wave heals
