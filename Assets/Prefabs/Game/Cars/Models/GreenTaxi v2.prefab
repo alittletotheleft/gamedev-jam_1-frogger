@@ -2860,6 +2860,7 @@ MonoBehaviour:
   carDamage: {fileID: 11400000, guid: 226a78886f8e29b49a9b638a629d6884, type: 2}
   carCost: {fileID: 11400000, guid: 7aa7684c632760144af4d72a7b47d4b1, type: 2}
   carCooldown: {fileID: 11400000, guid: 08d2f97a0f5e2a940ac473f9ad648cc6, type: 2}
+  explosionParticle: {fileID: 6089142585511128778, guid: 0bead51aa777e1545b990e46eb8e838c, type: 3}
 --- !u!65 &5125087697855669301
 BoxCollider:
   m_ObjectHideFlags: 0
