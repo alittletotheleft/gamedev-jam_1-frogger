@@ -8716,6 +8716,8 @@ MonoBehaviour:
   hurtCooldown: 0.5
   onFrogDestroy: {fileID: 11400000, guid: 84ab3ceae10b8f240a8fe5e195773d1c, type: 2}
   healthBar: {fileID: 6182769380423528926}
+  bloodPuddlePrefab: {fileID: 6275036826922417984, guid: 645d243c97cb8804da5fed9d6e2277d2, type: 3}
+  bodyRenderer: {fileID: 3633226824607006511}
 --- !u!114 &4893426460131058131
 MonoBehaviour:
   m_ObjectHideFlags: 0
