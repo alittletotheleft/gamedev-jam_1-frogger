@@ -7,6 +7,7 @@ public class CommunityStat : ScriptableObject
     [SerializeField] private string title = "Title";
     [TextArea]
     [SerializeField] string description = "Description";
+    [SerializeField] private string shortDescription = "(Stat)";
     private int level = 0;
 
     public int Level
@@ -20,6 +21,7 @@ public class CommunityStat : ScriptableObject
     public int MaxLevel { get { return maxLevel; } }
     public string Title { get { return title; } }
     public string Description { get { return description; } }
+    public string ShortDescription { get { return shortDescription; } }
 
     public bool IsMaxed()
     {
