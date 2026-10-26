@@ -33,8 +33,6 @@ public class UIManager : MonoBehaviour
                 gameUI.SetActive(true);
             healthSlider.value = gameState.Health;
             healthSlider.maxValue = gameState.MaxHealth;
-            // moneyText.text = $"{gameState.Money}";
-            // wavesText.text = $"{gameState.Waves}";
             moneyText.SetText("{0}", gameState.Money);
             wavesText.SetText("{0}", gameState.Waves);
             

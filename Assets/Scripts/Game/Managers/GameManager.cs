@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameState gameState;
     [SerializeField] private int startingHealth = 100;
     [SerializeField] private int startingMoney = 300;
+    [SerializeField] private int passiveMoney = 25;
+    [SerializeField] private float moneyFrequency = 2f;
     [SerializeField] private int upgradeFrequency = 5;
     [SerializeField] private CommunityStat heal;
     // [SerializeField] private CommunityStat maxHealth;
@@ -17,6 +20,7 @@ public class GameManager : MonoBehaviour
     private FrogsManager frogsManager;
     private UIManager uIManager;
     private UpgradesManager upgradesManager;
+    private bool isGeneratingMoney;
 
     private void Start()
     {
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
         upgradesManager = GetComponentInChildren<UpgradesManager>();
 
         gameState.IsGameRunning = false;
+        isGeneratingMoney = false;
 
         StartGame();
     }
@@ -57,12 +62,27 @@ public class GameManager : MonoBehaviour
         gameState.Waves++;
         gameState.State = State.Wave;
         frogsManager.StartFrogSpawning();
+        if (!isGeneratingMoney)
+        {
+            isGeneratingMoney = true;
+            StartCoroutine(GenerateMoney());
+        }
     }
 
     private void StartUpgrades()
     {
         gameState.State = State.Upgrades;
         upgradesManager.InitializeUpgrades();
+        isGeneratingMoney = false;
+    }
+
+    private IEnumerator GenerateMoney()
+    {
+        while (isGeneratingMoney)
+        {
+            yield return new WaitForSeconds(moneyFrequency);
+            gameState.Money += Mathf.FloorToInt(passiveMoney + 0.50f * ((float)money.Level/money.MaxLevel));
+        }
     }
 
     public void OnFrogEnter(int damage)
@@ -85,11 +105,15 @@ public class GameManager : MonoBehaviour
         // Debug.Log("Frog destroyed :(");
         gameState.WaveCount--;
 
-        if (gameState.WaveCount <= 0 && gameState.Waves % upgradeFrequency == 0 && gameState.IsGameRunning)
+        if (gameState.WaveCount <= 0 && gameState.IsGameRunning)
         {
             gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.60f * ((float)heal.Level/heal.MaxLevel)));
-            gameState.Money += Mathf.FloorToInt(gameState.Money * 0.50f * ((float)money.Level+1/money.MaxLevel+1));
-            StartUpgrades();
+            // gameState.Money += Mathf.FloorToInt(gameState.Money + 0.50f * ((float)money.Level+1/money.MaxLevel+1));
+            StartNextWave();
+            if (gameState.Waves % upgradeFrequency == 0)
+            {
+                StartUpgrades();
+            }
         }
     }
 
