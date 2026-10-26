@@ -83,12 +83,12 @@ public class Car : MonoBehaviour
             int explosionDamage;
             if (otherCar.GetSize() == ModelSize.Large || GetSize() == ModelSize.Large)
             {
-                explosionRadius = 36f;
+                explosionRadius = 40f;
                 explosionDamage = Mathf.RoundToInt((otherCar.GetComputedDamage() + damage) * 1.33f);
             }
             else
             {
-                explosionRadius = 24f;
+                explosionRadius = 28f;
                 explosionDamage = (otherCar.GetComputedDamage() + damage);
             }
             
