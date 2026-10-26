@@ -10941,6 +10941,10 @@ MonoBehaviour:
   carCost: {fileID: 11400000, guid: 7aa7684c632760144af4d72a7b47d4b1, type: 2}
   carCooldown: {fileID: 11400000, guid: 08d2f97a0f5e2a940ac473f9ad648cc6, type: 2}
   explosionParticle: {fileID: 6089142585511128778, guid: 0bead51aa777e1545b990e46eb8e838c, type: 3}
+  bonkSFX: {fileID: 8300000, guid: 1c971fcc0f48cef448d77af84e743fe7, type: 3}
+  bonkVol: 0.25
+  explosionSFX: {fileID: 8300000, guid: 2bb3d89d1e2376b46810566662b7748c, type: 3}
+  explosionVol: 0.1
 --- !u!65 &6081991085401987415
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+// using System.Diagnostics;
 
 public class Car : MonoBehaviour
 {
@@ -10,8 +11,13 @@ public class Car : MonoBehaviour
     [SerializeField] private CommunityStat carDamage;
     [SerializeField] private CommunityStat carCost;
     [SerializeField] private CommunityStat carCooldown;
-
     [SerializeField] private ParticleSystem explosionParticle;
+    [SerializeField] private AudioClip bonkSFX;
+    [Range(0f,1f)]
+    [SerializeField] private float bonkVol;
+    [SerializeField] private AudioClip explosionSFX;
+    [Range(0f,1f)]
+    [SerializeField] private float explosionVol;
     
     private int damage;
     private float moveSpeed;
@@ -66,6 +72,7 @@ public class Car : MonoBehaviour
             IDamageable frog = other.GetComponentInParent<IDamageable>();
             frog?.Damage(damage);
             Debug.Log($"Frog hit w/ dmg: {damage} at speed: {moveSpeed}");
+            AudioSource.PlayClipAtPoint(bonkSFX, Camera.main.transform.position, bonkVol);
         }
 
         if (other.CompareTag("Car"))
@@ -130,6 +137,8 @@ public class Car : MonoBehaviour
         ParticleSystem.MainModule main = explosion.main;
         main.stopAction = ParticleSystemStopAction.Destroy;
         explosion.Play();
+
+        AudioSource.PlayClipAtPoint(explosionSFX, Camera.main.transform.position, explosionVol);
     }
 
     public void DestroySelf()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(FrogHop))]
 public class Frog : MonoBehaviour, IDamageable
@@ -16,6 +17,14 @@ public class Frog : MonoBehaviour, IDamageable
     [Header("Death Puddle")]
     [SerializeField] private Renderer bloodPuddlePrefab;
     [SerializeField] private Renderer bodyRenderer;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] ows;
+    [Range(0f,1f)]
+    [SerializeField] private float owVol = 0.25f;
+    [SerializeField] private AudioClip[] squishes;
+    [Range(0f,1f)]
+    [SerializeField] private float squishVol = 0.25f;
 
     private const float PuddleLifetime = 4f;
     private const float NormalFrogScale = 1.25f;
@@ -91,6 +100,8 @@ public class Frog : MonoBehaviour, IDamageable
         SpawnBloodPuddle();
 
         gameState.FrogsKilled++;
+        AudioSource.PlayClipAtPoint(ows[Random.Range(0, ows.Length)], Camera.main.transform.position, 0.25f);
+        AudioSource.PlayClipAtPoint(squishes[Random.Range(0, squishes.Length)], Camera.main.transform.position, 0.25f);
         
         gameState.Money += Mathf.FloorToInt(rewardValue * 0.50f * ((float)money.Level+1/money.MaxLevel+1));
         onFrogDestroy.Invoke();

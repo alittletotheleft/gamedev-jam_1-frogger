@@ -8718,6 +8718,14 @@ MonoBehaviour:
   healthBar: {fileID: 4897824717428065891}
   bloodPuddlePrefab: {fileID: 6275036826922417984, guid: 645d243c97cb8804da5fed9d6e2277d2, type: 3}
   bodyRenderer: {fileID: 3633226824607006511}
+  ows:
+  - {fileID: 8300000, guid: b51745f76ee6f3646844783a56844a0c, type: 3}
+  - {fileID: 8300000, guid: c674d124cab9e1547b489f7ffa7d0fb6, type: 3}
+  - {fileID: 8300000, guid: e425782f586d62e42a7d61fc670a6178, type: 3}
+  - {fileID: 8300000, guid: a2863623fa2293347abd32d146f692ea, type: 3}
+  squishes:
+  - {fileID: 8300000, guid: df44cbc6fcad44c498d1cda53e17e774, type: 3}
+  - {fileID: 8300000, guid: a633b0d29e34361458bc091662e4f50f, type: 3}
 --- !u!114 &4893426460131058131
 MonoBehaviour:
   m_ObjectHideFlags: 0
