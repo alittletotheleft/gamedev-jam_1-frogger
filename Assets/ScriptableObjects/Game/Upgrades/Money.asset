@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a48db614a5c63f47a30aa2635ad04f4, type: 3}
   m_Name: Money
   m_EditorClassIdentifier: Assembly-CSharp::CommunityStat
-  maxLevel: 7
+  maxLevel: 15
   title: Gas Station
   description: Increase the amount of petroleum you earn from all sources.
   shortDescription: Money-makin'

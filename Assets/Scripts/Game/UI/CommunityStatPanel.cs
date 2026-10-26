@@ -23,4 +23,11 @@ public class CommunityStatPanel : MonoBehaviour
             levelsText.SetText($"Lv. {stat.Level} / {stat.MaxLevel}");
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        titleText.SetText(stat.Title);
+        shortDescriptionText.SetText($"({stat.ShortDescription})");
+        levelsText.SetText($"Lv. {stat.Level} / {stat.MaxLevel}");
+    }
 }

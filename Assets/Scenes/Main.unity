@@ -797,6 +797,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: (Car cooldowns)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
       value: 3
       objectReference: {fileID: 0}
@@ -944,6 +948,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6806018838419002524, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Lv. 0 / 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8095362361449612203, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1047,6 +1055,10 @@ PrefabInstance:
     - target: {fileID: 8128979598601418629, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Car Factory
       objectReference: {fileID: 0}
     - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
@@ -3996,6 +4008,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6806018838419002524, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Lv. 0 / 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8095362361449612203, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4099,6 +4115,10 @@ PrefabInstance:
     - target: {fileID: 8128979598601418629, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Police Station
       objectReference: {fileID: 0}
     - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
@@ -7276,6 +7296,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: 'C: 8.0'
+      objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7384,6 +7408,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4934019576862162809, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: '$: 160'
+      objectReference: {fileID: 0}
     - target: {fileID: 5328021737883022398, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7435,6 +7463,10 @@ PrefabInstance:
     - target: {fileID: 7280882557388748735, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Name
       value: CarButton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155894315061295952, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: Taxi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11822,6 +11854,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: (Money-makin')
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
       value: 3
       objectReference: {fileID: 0}
@@ -11969,6 +12005,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6806018838419002524, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Lv. 0 / 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8095362361449612203, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12072,6 +12112,10 @@ PrefabInstance:
     - target: {fileID: 8128979598601418629, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Gas Station
       objectReference: {fileID: 0}
     - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
@@ -12218,6 +12262,10 @@ PrefabInstance:
     - target: {fileID: 3148441293277855609, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: (Car costs)
       objectReference: {fileID: 0}
     - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
@@ -12367,6 +12415,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6806018838419002524, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Lv. 0 / 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8095362361449612203, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12470,6 +12522,10 @@ PrefabInstance:
     - target: {fileID: 8128979598601418629, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Oil Refinery
       objectReference: {fileID: 0}
     - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
@@ -49021,6 +49077,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: 'C: 3.0'
+      objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -49129,6 +49189,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4934019576862162809, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: '$: 50'
+      objectReference: {fileID: 0}
     - target: {fileID: 5328021737883022398, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -49180,6 +49244,10 @@ PrefabInstance:
     - target: {fileID: 7280882557388748735, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Name
       value: CarButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155894315061295952, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: Drunk Driver
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -83981,6 +84049,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: (Car speeds)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
       value: 3
       objectReference: {fileID: 0}
@@ -84107,6 +84179,10 @@ PrefabInstance:
     - target: {fileID: 6275387868346191550, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806018838419002524, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Lv. 0 / 15
       objectReference: {fileID: 0}
     - target: {fileID: 8095362361449612203, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_Pivot.x
@@ -86678,6 +86754,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: 'C: 10.0'
+      objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -86786,6 +86866,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4934019576862162809, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: '$: 120'
+      objectReference: {fileID: 0}
     - target: {fileID: 5328021737883022398, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -86837,6 +86921,10 @@ PrefabInstance:
     - target: {fileID: 7280882557388748735, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Name
       value: CarButton (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155894315061295952, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: Truck
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -87461,6 +87549,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: (After-wave heals)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263013018539844606, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
       value: 3
       objectReference: {fileID: 0}
@@ -87608,6 +87700,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6806018838419002524, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Lv. 0 / 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8095362361449612203, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -87713,6 +87809,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
+      propertyPath: m_text
+      value: Hospital
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984997747553231017, guid: fb2d924562bc06c45bb20e31f3ff9dcd, type: 3}
       propertyPath: m_overflowMode
       value: 3
       objectReference: {fileID: 0}
@@ -87752,6 +87852,10 @@ PrefabInstance:
     - target: {fileID: 576134563392607251, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284314006045010056, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: 'C: 6.0'
       objectReference: {fileID: 0}
     - target: {fileID: 2386672146444320542, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -87920,6 +88024,10 @@ PrefabInstance:
     - target: {fileID: 7280882557388748735, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
       propertyPath: m_Name
       value: CarButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155894315061295952, guid: b0040a84eec465d4f9de6f427dbcaa8a, type: 3}
+      propertyPath: m_text
+      value: Normal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

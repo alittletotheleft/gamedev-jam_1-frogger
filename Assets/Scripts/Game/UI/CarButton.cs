@@ -54,4 +54,11 @@ public class CarButton : MonoBehaviour
         button.interactable = true;
         cooldownText.SetText($"C: {car.GetCooldown():F1}");
     }
+
+    private void OnDrawGizmos()
+    {
+        titleText.SetText($"{car.GetName()}");
+        moneyText.SetText($"$: {car.GetCost()}");
+        cooldownText.SetText($"C: {car.GetCooldown():F1}");
+    }
 }
