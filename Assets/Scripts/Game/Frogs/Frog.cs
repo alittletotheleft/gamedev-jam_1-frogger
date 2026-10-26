@@ -82,7 +82,7 @@ public class Frog : MonoBehaviour, IDamageable
 
         gameState.FrogsKilled++;
         
-        gameState.Money += Mathf.FloorToInt(rewardValue * 0.50f * ((float)money.Level+1/money.MaxLevel+1)) ;
+        gameState.Money += Mathf.FloorToInt(rewardValue * 0.50f * ((float)money.Level+1/money.MaxLevel+1));
         onFrogDestroy.Invoke();
         Destroy(gameObject);
     }

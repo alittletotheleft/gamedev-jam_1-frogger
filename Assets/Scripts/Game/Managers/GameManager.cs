@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameState gameState;
     [SerializeField] private int startingHealth = 100;
     [SerializeField] private int startingMoney = 300;
+    [SerializeField] private int passiveMoney = 25;
+    [SerializeField] private float moneyFrequency = 2f;
     [SerializeField] private int upgradeFrequency = 5;
     [SerializeField] private CommunityStat heal;
     // [SerializeField] private CommunityStat maxHealth;
@@ -57,12 +60,22 @@ public class GameManager : MonoBehaviour
         gameState.Waves++;
         gameState.State = State.Wave;
         frogsManager.StartFrogSpawning();
+        StartCoroutine(GenerateMoney());
     }
 
     private void StartUpgrades()
     {
         gameState.State = State.Upgrades;
         upgradesManager.InitializeUpgrades();
+    }
+
+    private IEnumerator GenerateMoney()
+    {
+        while (gameState.IsGameRunning && gameState.State == State.Wave)
+        {
+            yield return new WaitForSeconds(moneyFrequency);
+            gameState.Money += Mathf.FloorToInt(passiveMoney * 0.50f * ((float)money.Level/money.MaxLevel));
+        }
     }
 
     public void OnFrogEnter(int damage)
