@@ -10,6 +10,9 @@ public class GameState : ScriptableObject
     private int waves;
     private int waveCount;
     
+    public bool IsGameOver { get; set; }
+    public int FrogsKilled { get; set; }
+    
     public State State
     {
         get => state;

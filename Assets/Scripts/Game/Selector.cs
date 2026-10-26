@@ -32,6 +32,12 @@ public class Selector : MonoBehaviour
 
     private void Update()
     {
+        if (!gameState.IsGameRunning)
+        {
+            if (isPlacing) UnselectCar();
+            return;
+        }
+
         if (isPlacing)
         {
             ShowGhostCar();
@@ -40,6 +46,8 @@ public class Selector : MonoBehaviour
 
     public void OnCarSelect(GameObject carObj, Action callback)
     {
+        if (!gameState.IsGameRunning) return;
+
         Car car = carObj.GetComponent<Car>();
         buttonCallback = callback;
 
@@ -107,7 +115,7 @@ public class Selector : MonoBehaviour
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        if (context.performed && isPlacing)
+        if (context.performed && isPlacing && gameState.IsGameRunning)
         {
             PlaceCar();
         }

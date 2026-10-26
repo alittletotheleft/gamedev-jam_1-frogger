@@ -11,9 +11,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text wavesText;
+    [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private TMP_Text wavesDefeatedText;
+    [SerializeField] private TMP_Text frogsKilledText;
 
     private void Update()
     {
+        if (gameOverUI.activeSelf != gameState.IsGameOver)
+        {
+            gameOverUI.SetActive(gameState.IsGameOver);
+            if (gameState.IsGameOver)
+            {
+                wavesDefeatedText.SetText("Waves Defeated: {0}", Mathf.Max(0, gameState.Waves - 1));
+                frogsKilledText.SetText("Frogs Squashed: {0}", gameState.FrogsKilled);
+            }
+        }
+        
         if (gameState.IsGameRunning)
         {
             if (!gameUI.activeSelf)

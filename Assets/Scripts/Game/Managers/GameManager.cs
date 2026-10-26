@@ -31,11 +31,15 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        upgradesManager.InitializeStats();
+
         gameState.MaxHealth = startingHealth;
         gameState.Health = startingHealth;
         gameState.Money = startingMoney;
         gameState.Waves = 0;
+        gameState.FrogsKilled = 0;
 
+        gameState.IsGameOver = false;
         gameState.IsGameRunning = true;
         StartNextWave();
     }
@@ -44,6 +48,8 @@ public class GameManager : MonoBehaviour
     {
         frogsManager.StopFrogSpawning();
         gameState.IsGameRunning = false;
+        gameState.IsGameOver = true;
+        Time.timeScale = 0f;
     }
 
     private void StartNextWave()
@@ -61,11 +67,10 @@ public class GameManager : MonoBehaviour
 
     public void OnFrogEnter(int damage)
     {
-        if (gameState.State == State.Upgrades)
+        if (!gameState.IsGameRunning || gameState.State == State.Upgrades)
             return;
-        
+
         gameState.Health -= damage;
-        // Debug.Log($"Health: {gameState.Health}");
         if (gameState.Health <= 0)
         {
             StopGame();
