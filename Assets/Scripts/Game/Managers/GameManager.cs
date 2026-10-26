@@ -105,15 +105,15 @@ public class GameManager : MonoBehaviour
         // Debug.Log("Frog destroyed :(");
         gameState.WaveCount--;
 
-        if (gameState.WaveCount <= 0 && gameState.Waves % upgradeFrequency == 0 && gameState.IsGameRunning)
+        if (gameState.WaveCount <= 0 && gameState.IsGameRunning)
         {
-            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth + (0.60f * ((float)heal.Level/heal.MaxLevel)));
-            gameState.Money += Mathf.FloorToInt(gameState.Money + 0.50f * ((float)money.Level+1/money.MaxLevel+1));
-            StartUpgrades();
-        }
-        else
-        {
+            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.60f * ((float)heal.Level/heal.MaxLevel)));
+            // gameState.Money += Mathf.FloorToInt(gameState.Money + 0.50f * ((float)money.Level+1/money.MaxLevel+1));
             StartNextWave();
+            if (gameState.Waves % upgradeFrequency == 0)
+            {
+                StartUpgrades();
+            }
         }
     }
 
