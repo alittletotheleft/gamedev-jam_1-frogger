@@ -18,4 +18,4 @@ MonoBehaviour:
   minHopDelay: 0
   maxHopDelay: 1
   baseDamage: 5
-  baseRewards: 0
+  baseRewards: 100

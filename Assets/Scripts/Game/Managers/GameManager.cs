@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private FrogsManager frogsManager;
     private UIManager uIManager;
     private UpgradesManager upgradesManager;
+    private bool isGeneratingMoney;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         upgradesManager = GetComponentInChildren<UpgradesManager>();
 
         gameState.IsGameRunning = false;
+        isGeneratingMoney = false;
 
         StartGame();
     }
@@ -60,21 +62,26 @@ public class GameManager : MonoBehaviour
         gameState.Waves++;
         gameState.State = State.Wave;
         frogsManager.StartFrogSpawning();
-        StartCoroutine(GenerateMoney());
+        if (!isGeneratingMoney)
+        {
+            isGeneratingMoney = true;
+            StartCoroutine(GenerateMoney());
+        }
     }
 
     private void StartUpgrades()
     {
         gameState.State = State.Upgrades;
         upgradesManager.InitializeUpgrades();
+        isGeneratingMoney = false;
     }
 
     private IEnumerator GenerateMoney()
     {
-        while (gameState.IsGameRunning && gameState.State == State.Wave)
+        while (isGeneratingMoney)
         {
             yield return new WaitForSeconds(moneyFrequency);
-            gameState.Money += Mathf.FloorToInt(passiveMoney * 0.50f * ((float)money.Level/money.MaxLevel));
+            gameState.Money += Mathf.FloorToInt(passiveMoney + 0.50f * ((float)money.Level/money.MaxLevel));
         }
     }
 
@@ -100,9 +107,13 @@ public class GameManager : MonoBehaviour
 
         if (gameState.WaveCount <= 0 && gameState.Waves % upgradeFrequency == 0 && gameState.IsGameRunning)
         {
-            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth * (0.60f * ((float)heal.Level/heal.MaxLevel)));
-            gameState.Money += Mathf.FloorToInt(gameState.Money * 0.50f * ((float)money.Level+1/money.MaxLevel+1));
+            gameState.Health += Mathf.FloorToInt(gameState.MaxHealth + (0.60f * ((float)heal.Level/heal.MaxLevel)));
+            gameState.Money += Mathf.FloorToInt(gameState.Money + 0.50f * ((float)money.Level+1/money.MaxLevel+1));
             StartUpgrades();
+        }
+        else
+        {
+            StartNextWave();
         }
     }
 
