@@ -21,17 +21,14 @@ public class Frog : MonoBehaviour, IDamageable
     private int rewardValue;
     private bool isDestroyed;
 
-    [NonSerialized]
-    public int level = 0;
-
     private void Start()
     {
         frogHop = GetComponent<FrogHop>();
         
-        health = frogType.GetComputedHealth(level);
+        health = frogType.GetComputedHealth(gameState.FrogLevel);
         maxHealth = health;
-        damage = frogType.GetComputedDamage(level);
-        frogHop.SetStepSize(frogType.GetComputedSpeed(level));
+        damage = frogType.GetComputedDamage(gameState.FrogLevel);
+        frogHop.SetStepSize(frogType.GetComputedSpeed(gameState.FrogLevel));
         rewardValue = frogType.baseRewards;
         
         isHurtOnCooldown = false;

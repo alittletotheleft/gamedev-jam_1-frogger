@@ -6104,7 +6104,7 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -8212,7 +8212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291242266358340711, guid: ed3e61da977c86e4da9c400fba6058dd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5291242266358340711, guid: ed3e61da977c86e4da9c400fba6058dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8969,7 +8969,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 140518767}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.23565114
+  m_Size: 0.512693
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12057,7 +12057,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 102.47998}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1339799274
 MonoBehaviour:
@@ -49164,7 +49164,6 @@ MonoBehaviour:
   frogSpawnParent: {fileID: 446246253}
   frogSpawnPositionStart: {fileID: 1683431215}
   frogSpawnPositionEnd: {fileID: 1994841820}
-  frogLevel: 0
 --- !u!1 &1721985773
 GameObject:
   m_ObjectHideFlags: 0
@@ -84686,7 +84685,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 293.04}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833230919
 MonoBehaviour:
@@ -85877,7 +85876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291242266358340711, guid: ed3e61da977c86e4da9c400fba6058dd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5291242266358340711, guid: ed3e61da977c86e4da9c400fba6058dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -89690,7 +89689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6499999259417788722, guid: 3d7df2c1fa35da647a0186b29cf41e86, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6499999259417788722, guid: 3d7df2c1fa35da647a0186b29cf41e86, type: 3}
       propertyPath: m_LocalPosition.x

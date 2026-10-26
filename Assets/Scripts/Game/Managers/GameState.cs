@@ -9,6 +9,7 @@ public class GameState : ScriptableObject
     private int money;
     private int waves;
     private int waveCount;
+    private int frogLevel;
     
     public bool IsGameOver { get; set; }
     public int FrogsKilled { get; set; }
@@ -64,6 +65,15 @@ public class GameState : ScriptableObject
         set
         {
             waveCount = Mathf.Clamp(value, 0, 99999);
+        }
+    }
+
+    public int FrogLevel
+    {
+        get => frogLevel;
+        set
+        {
+            frogLevel = Mathf.Clamp(value, 0, 30);
         }
     }
 

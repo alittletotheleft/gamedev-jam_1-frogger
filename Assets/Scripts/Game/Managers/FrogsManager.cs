@@ -12,7 +12,7 @@ public class FrogsManager : MonoBehaviour
     [SerializeField] private Transform frogSpawnParent;
     [SerializeField] private Transform frogSpawnPositionStart;
     [SerializeField] private Transform frogSpawnPositionEnd;
-    [SerializeField] private int frogLevel = 0;
+    // [SerializeField] private int frogLevel = 0;
 
     public void StartFrogSpawning()
     {
@@ -62,7 +62,7 @@ public class FrogsManager : MonoBehaviour
             );
             newFrog.transform.parent = frogSpawnParent;
             // newFrog.transform.Rotate(new Vector3(0, 90, 0));
-            newFrog.GetComponent<Frog>().level = frogLevel;
+            // newFrog.GetComponent<Frog>().level = frogLevel;
 
             yield return new WaitForSeconds(Mathf.Lerp(minCooldown, maxCooldown, Random.value));
         }

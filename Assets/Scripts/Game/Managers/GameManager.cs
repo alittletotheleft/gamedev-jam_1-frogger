@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void OnUpgradeSelect()
     {
+        gameState.FrogLevel++;
         StartNextWave();
     }
 }
