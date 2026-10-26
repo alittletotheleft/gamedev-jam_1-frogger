@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
         gameState.State = State.Wave;
         frogsManager.StartFrogSpawning();
 
+        // Trigger the flash on screen
+        if (uIManager != null)
+            uIManager.ShowWaveBanner(gameState.Waves);
+
         if (moneyRoutine == null)
             moneyRoutine = StartCoroutine(GenerateMoney());
     }
@@ -86,7 +90,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(moneyFrequency);
-            gameState.Money += Mathf.FloorToInt(passiveMoney + 0.50f * ((float)money.Level / money.MaxLevel));
+            gameState.Money += Mathf.FloorToInt(passiveMoney * (1f + 0.50f * ((float)money.Level / money.MaxLevel)));
         }
     }
 

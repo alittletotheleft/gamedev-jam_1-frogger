@@ -85,12 +85,12 @@ public class Car : MonoBehaviour
             if (otherCar.GetSize() == ModelSize.Large || GetSize() == ModelSize.Large)
             {
                 explosionRadius = 40f;
-                explosionDamage = Mathf.RoundToInt((otherCar.GetComputedDamage() + damage) * 1.33f);
+                explosionDamage = Mathf.RoundToInt((otherCar.GetComputedDamage() + damage) * 1.40f);
             }
             else
             {
                 explosionRadius = 28f;
-                explosionDamage = (otherCar.GetComputedDamage() + damage);
+                explosionDamage = Mathf.RoundToInt((otherCar.GetComputedDamage() + damage) * 1.10f);
             }
             
             Debug.Log($"Car: {damage}, Other: {otherCar.GetComputedDamage()}");
@@ -204,7 +204,7 @@ public class Car : MonoBehaviour
 
     public float GetCooldown()
     {
-        return Mathf.FloorToInt(model.cooldown * (1f - 0.50f * ((float)carCooldown.Level/carCooldown.MaxLevel)));;
+        return Mathf.FloorToInt(model.cooldown * (1f - 0.50f * ((float)carCooldown.Level/carCooldown.MaxLevel)));
     }
 
     public string GetName()
@@ -248,11 +248,6 @@ public class Car : MonoBehaviour
     public Vector3 GetPathOffset()
     {
         return model.pathOffset;
-    }
-
-    public string GetMdoel()
-    {
-        return model.modelName;
     }
 
 }
